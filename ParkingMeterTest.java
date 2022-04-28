@@ -42,5 +42,6 @@ class ParkingMeterTest {
 
     @Test
     void getParkingMeterNumber() {
+        assertEquals(parkingMeterNumber, parkingMeter.getParkingMeterNumber());
     }
 }

@@ -32,6 +32,7 @@ class ParkingMeterTest {
 
     @Test
     void getParkingMeterTime() {
+        assertEquals(parkingMeterTime, parkingMeter.getParkingMeterTime());
     }
 
     @Test

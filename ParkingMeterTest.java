@@ -37,6 +37,7 @@ class ParkingMeterTest {
 
     @Test
     void getParkingMeterLocation() {
+        assertEquals(parkingMeterLocation, parkingMeter.getParkingMeterLocation());
     }
 
     @Test

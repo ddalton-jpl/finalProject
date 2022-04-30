@@ -1,4 +1,7 @@
+package tests;
+
 import org.junit.jupiter.api.Test;
+import src.ParkingMeter;
 
 import static org.junit.Assert.assertThrows;
 import static org.junit.jupiter.api.Assertions.assertEquals;
@@ -14,7 +17,7 @@ class ParkingMeterTest {
     void ParkingMeterConstructor() {
         assertEquals(parkingMeterNumber, parkingMeter.getParkingMeterNumber());
         assertEquals(parkingMeterLocation, parkingMeter.getParkingMeterLocation());
-        assertEquals(parkingMeterTime, parkingMeter.getParkingMeterTime());
+        assertEquals(parkingMeterTime, parkingMeter.getTimeAtMeter());
     }
 
     @Test
@@ -23,7 +26,7 @@ class ParkingMeterTest {
             Integer invalidParkingMeterNumber = 123;
             String invalidParkingMeterLocation = "";
             String invalidParkingMeterTime = "99:99";
-            ParkingMeter parkingMeter1 = new ParkingMeter(invalidParkingMeterNumber, invalidParkingMeterLocation, invalidParkingMeterTime);
+            new ParkingMeter(invalidParkingMeterNumber, invalidParkingMeterLocation, invalidParkingMeterTime);
         });
         String expectedMessage = "Invalid Input";
         String actualMessage = exception.getMessage();
@@ -32,12 +35,24 @@ class ParkingMeterTest {
 
     @Test
     void getParkingMeterTime() {
-        assertEquals(parkingMeterTime, parkingMeter.getParkingMeterTime());
+        assertEquals(parkingMeterTime, parkingMeter.getTimeAtMeter());
     }
 
     @Test
     void getParkingMeterLocation() {
         assertEquals(parkingMeterLocation, parkingMeter.getParkingMeterLocation());
+    }
+
+    @Test
+    void getMeterIsTaken() {
+        parkingMeter.setMeterIsTaken(true);
+        assertEquals(true, parkingMeter.getMeterIsTaken());
+    }
+
+    @Test
+    void setMeterIsTaken() {
+        parkingMeter.setMeterIsTaken(false);
+        assertEquals(false, parkingMeter.getMeterIsTaken());
     }
 
     @Test

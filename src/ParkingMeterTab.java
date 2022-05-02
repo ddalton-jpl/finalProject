@@ -11,7 +11,6 @@ public class ParkingMeterTab {
     }
 
     public void setOpenParking(ArrayList<ParkingMeter> openParking) {
-        getMeterIsTaken();
         this.openParking = openParking;
     }
 }

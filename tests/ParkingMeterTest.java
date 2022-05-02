@@ -53,9 +53,4 @@ class ParkingMeterTest {
         parkingMeter.setMeterIsTaken(false, parkingMeterNumber);
         assertEquals(false, parkingMeter.getMeterIsTaken(parkingMeterNumber));
     }
-
-    @Test
-    void getHm() {
-        assertEquals(parkingMeter.toString(), parkingMeter.getHm().get(parkingMeterNumber).toString());
-    }
 }

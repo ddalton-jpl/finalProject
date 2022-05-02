@@ -15,7 +15,7 @@ public class ParkingMeter {
     private Boolean meterIsTaken;
 
     // Hashmap for parking meter
-    HashMap<Integer, ParkingMeter> hm = new HashMap<>();;
+    private HashMap<Integer, ParkingMeter> hm = new HashMap<>();;
 
     public ParkingMeter(Integer parkingMeterNumber, String parkingMeterLocation, String parkingMeterTime) {
         if (parkingMeterNumber > 999999 || parkingMeterNumber < 100000 || parkingMeterLocation.length() < 1 || !parkingMeterTime.matches("^(\\d|0\\d|1\\d|2[0-3]):[0-5]\\d$") || hm.containsKey(parkingMeterNumber)) {
@@ -26,6 +26,10 @@ public class ParkingMeter {
         this.meterIsTaken = false;
         this.parkingMeterNumber = parkingMeterNumber;
         hm.put(this.parkingMeterNumber, this);
+    }
+
+    public HashMap<Integer, ParkingMeter> getHm() {
+        return hm;
     }
 
     public String getTimeAtMeter(Integer key) {

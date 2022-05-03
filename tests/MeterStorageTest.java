@@ -47,4 +47,9 @@ class MeterStorageTest {
         assertEquals(Arrays.toString(hmTestValues), Arrays.toString(meterStorage.getHm().get(parkingMeterNumber)));
     }
 
+    @Test
+    void getParkingMeterLocation() {
+        assertEquals(parkingMeterLocation, meterStorage.getParkingMeterLocation(parkingMeterNumber));
+    }
+
 }

@@ -2,19 +2,41 @@ package src;
 
 import java.util.HashMap;
 
-public class MeterStorage extends ParkingMeter{
+public class MeterStorage {
     // Hashmap for parking meter
-    private HashMap<Integer, ParkingMeter> hm = new HashMap<>();
+    private final HashMap<Integer, String[]> hm = new HashMap<>();
+
+    Integer parkingMeterNumber;
+
+    String parkingMeterLocation;
+
+    String parkingMeterTime;
 
     public MeterStorage(Integer parkingMeterNumber, String parkingMeterLocation, String parkingMeterTime) {
-        super(parkingMeterNumber, parkingMeterLocation, parkingMeterTime);
-    }
-
-    public void setHm(MeterStorage meterStorage) {
-        hm.put(getParkingMeterNumber(), meterStorage);
-    }
-
-    public HashMap<Integer, ParkingMeter> getHm() {
-            return hm;
+        if (parkingMeterNumber > 999999 || parkingMeterNumber < 100000 || parkingMeterLocation.length() < 1 || !parkingMeterTime.matches("^(\\d|0\\d|1\\d|2[0-3]):[0-5]\\d$")) {
+            throw new IllegalArgumentException("Invalid Input");
         }
+        this.parkingMeterNumber = parkingMeterNumber;
+        this.parkingMeterLocation = parkingMeterLocation;
+        this.parkingMeterTime = parkingMeterTime;
+        hm.put(this.parkingMeterNumber, new String[]{this.parkingMeterLocation, this.parkingMeterTime});
     }
+
+    public HashMap<Integer, String[]> getHm() {
+        return hm;
+    }
+
+    public String getParkingMeterLocation(Integer key) {
+        if (parkingMeterNumber > 999999 || parkingMeterNumber < 100000) {
+            throw new IllegalArgumentException("Bad Input");
+        }
+        return hm.get(key)[0];
+    }
+
+    public String getParkingMeterTime(Integer key) {
+        if (parkingMeterNumber > 999999 || parkingMeterNumber < 100000) {
+            throw new IllegalArgumentException("Bad Input");
+        }
+        return hm.get(key)[1];
+    }
+}

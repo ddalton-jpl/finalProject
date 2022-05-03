@@ -15,8 +15,8 @@ class ParkingMeterTest {
 
     @Test
     void ParkingMeterConstructor() {
-        assertEquals(parkingMeterLocation, parkingMeter.getParkingMeterLocation(parkingMeterNumber));
-        assertEquals(parkingMeterTime, parkingMeter.getTimeAtMeter(parkingMeterNumber));
+        assertEquals(parkingMeterLocation, parkingMeter.getParkingMeterLocation());
+        assertEquals(parkingMeterTime, parkingMeter.getTimeAtMeter());
     }
 
     @Test
@@ -34,23 +34,23 @@ class ParkingMeterTest {
 
     @Test
     void getParkingMeterTime() {
-        assertEquals(parkingMeterTime, parkingMeter.getTimeAtMeter(parkingMeterNumber));
+        assertEquals(parkingMeterTime, parkingMeter.getTimeAtMeter());
     }
 
     @Test
     void getParkingMeterLocation() {
-        assertEquals(parkingMeterLocation, parkingMeter.getParkingMeterLocation(parkingMeterNumber));
+        assertEquals(parkingMeterLocation, parkingMeter.getParkingMeterLocation());
     }
 
     @Test
     void getMeterIsTaken() {
-        parkingMeter.setMeterIsTaken(true, parkingMeterNumber);
-        assertEquals(true, parkingMeter.getMeterIsTaken(parkingMeterNumber));
+        parkingMeter.setMeterIsTaken(true);
+        assertEquals(true, parkingMeter.getMeterIsTaken());
     }
 
     @Test
     void setMeterIsTaken() {
-        parkingMeter.setMeterIsTaken(false, parkingMeterNumber);
-        assertEquals(false, parkingMeter.getMeterIsTaken(parkingMeterNumber));
+        parkingMeter.setMeterIsTaken(false);
+        assertEquals(false, parkingMeter.getMeterIsTaken());
     }
 }

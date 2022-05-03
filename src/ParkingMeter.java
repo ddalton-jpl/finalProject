@@ -12,29 +12,30 @@ public class ParkingMeter {
     // Constructor for the parking meter
     private Boolean meterIsTaken;
 
-    public ParkingMeter(Integer parkingMeterNumber, String parkingMeterLocation, String parkingMeterTime) {
-        if (parkingMeterNumber > 999999 || parkingMeterNumber < 100000 || parkingMeterLocation.length() < 1 || !parkingMeterTime.matches("^(\\d|0\\d|1\\d|2[0-3]):[0-5]\\d$")) {
+    public ParkingMeter(Integer parkingMeterNumber, String parkingMeterLocation, String timeAtMeter) {
+        if (parkingMeterNumber > 999999 || parkingMeterNumber < 100000 || parkingMeterLocation.length() < 1 || !timeAtMeter.matches("^(\\d|0\\d|1\\d|2[0-3]):[0-5]\\d$")) {
             throw new IllegalArgumentException("Invalid Input");
         }
         this.parkingMeterLocation = parkingMeterLocation;
-        this.timeAtMeter = parkingMeterTime;
+        this.timeAtMeter = timeAtMeter;
         this.meterIsTaken = false;
         this.parkingMeterNumber = parkingMeterNumber;
+        new MeterStorage(this.parkingMeterNumber, this.parkingMeterLocation, this.timeAtMeter);
     }
 
-    public String getTimeAtMeter(Integer key) {
+    public String getTimeAtMeter() {
         return this.timeAtMeter;
     }
 
-    public String getParkingMeterLocation(Integer key) {
+    public String getParkingMeterLocation() {
         return this.parkingMeterLocation;
     }
 
-    public void setMeterIsTaken(Boolean meterIsTaken, Integer key) {
+    public void setMeterIsTaken(Boolean meterIsTaken) {
         this.meterIsTaken = meterIsTaken;
     }
 
-    public Boolean getMeterIsTaken(Integer key) {
+    public Boolean getMeterIsTaken() {
         return this.meterIsTaken;
     }
 

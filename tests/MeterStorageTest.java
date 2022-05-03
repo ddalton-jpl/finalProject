@@ -3,6 +3,8 @@ package tests;
 import org.junit.jupiter.api.Test;
 import src.MeterStorage;
 
+import java.util.Arrays;
+
 import static org.junit.Assert.assertThrows;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
@@ -16,8 +18,10 @@ class MeterStorageTest {
     // time remaining on meter
     String parkingMeterTime = "10:40";
 
-    // meter hashmap
+    // meter object
     MeterStorage meterStorage = new MeterStorage(parkingMeterNumber, parkingMeterLocation, parkingMeterTime);
+
+    String[] hmTestValues = new String[]{parkingMeterLocation, parkingMeterTime};
 
     @Test
     void ParkingMeterConstructor() {
@@ -36,6 +40,11 @@ class MeterStorageTest {
         String expectedMessage = "Invalid Input";
         String actualMessage = exception.getMessage();
         assertEquals(expectedMessage, actualMessage);
+    }
+
+    @Test
+    void getHmTest() {
+        assertEquals(Arrays.toString(hmTestValues), Arrays.toString(meterStorage.getHm().get(parkingMeterNumber)));
     }
 
 }

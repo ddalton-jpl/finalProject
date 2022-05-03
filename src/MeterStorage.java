@@ -27,15 +27,15 @@ public class MeterStorage {
     }
 
     public String getParkingMeterLocation(Integer key) {
-        if (parkingMeterNumber > 999999 || parkingMeterNumber < 100000) {
-            throw new IllegalArgumentException("Bad Input");
+        if (key > 999999 || key < 100000) {
+            throw new IllegalArgumentException("Invalid input");
         }
         return hm.get(key)[0];
     }
 
     public String getParkingMeterTime(Integer key) {
-        if (parkingMeterNumber > 999999 || parkingMeterNumber < 100000) {
-            throw new IllegalArgumentException("Bad Input");
+        if (key > 999999 || key < 100000) {
+            throw new IllegalArgumentException("Invalid Input");
         }
         return hm.get(key)[1];
     }

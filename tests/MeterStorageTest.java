@@ -52,4 +52,15 @@ class MeterStorageTest {
         assertEquals(parkingMeterLocation, meterStorage.getParkingMeterLocation(parkingMeterNumber));
     }
 
+    @Test
+    void getParkingMeterLocationException() {
+        Exception exception = assertThrows(IllegalArgumentException.class, () -> {
+            Integer invalidParkingMeterNumber = 123;
+            meterStorage.getParkingMeterLocation(invalidParkingMeterNumber);
+        });
+        String expectedMessage = "Invalid input";
+        String actualMessage = exception.getMessage();
+        assertEquals(expectedMessage, actualMessage);
+    }
+
 }

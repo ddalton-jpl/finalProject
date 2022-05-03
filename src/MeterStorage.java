@@ -35,7 +35,7 @@ public class MeterStorage {
 
     public String getParkingMeterTime(Integer key) {
         if (key > 999999 || key < 100000) {
-            throw new IllegalArgumentException("Invalid Input");
+            throw new IllegalArgumentException("Invalid input");
         }
         return hm.get(key)[1];
     }

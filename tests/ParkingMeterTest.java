@@ -3,6 +3,8 @@ package tests;
 import org.junit.jupiter.api.Test;
 import src.ParkingMeter;
 
+import java.util.ArrayList;
+
 import static org.junit.Assert.assertThrows;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
@@ -12,6 +14,8 @@ class ParkingMeterTest {
     String parkingMeterLocation = "8809 W Castle Street";
     String parkingMeterTime = "10:40";
     ParkingMeter parkingMeter = new ParkingMeter(parkingMeterNumber, parkingMeterLocation, parkingMeterTime);
+
+    ArrayList<String> openMeters = new ArrayList<>();
 
     @Test
     void ParkingMeterConstructor() {
@@ -53,4 +57,13 @@ class ParkingMeterTest {
         parkingMeter.setMeterIsTaken(parkingMeterNumber, false);
         assertEquals(false, parkingMeter.getMeterIsTaken());
     }
+
+    @Test
+    void getOpenMeter() {
+        parkingMeter.setMeterIsTaken(parkingMeterNumber, false);
+        parkingMeter.setOpenMeter(parkingMeter);
+        openMeters.add(parkingMeter.getOpenMeters().toString());
+        assertEquals(openMeters.get(0), parkingMeter.getOpenMeters().toString() );
+    }
+
 }

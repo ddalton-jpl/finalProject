@@ -1,4 +1,8 @@
-// This is a change to test making a PR on develop
+/*
+    This is the source of data force the parking meter classes. This can be considered as part of a database
+    where information can be stored and altered if needed
+ */
+
 package tests;
 
 import org.junit.jupiter.api.Test;

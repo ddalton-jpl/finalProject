@@ -2,6 +2,8 @@ package src;
 
 import java.util.ArrayList;
 
+import static java.lang.String.valueOf;
+
 public class ParkingMeter {
 
     // The location of the parking meter
@@ -18,7 +20,7 @@ public class ParkingMeter {
     MeterStorage meterStorage;
 
     // List of open parking meters
-    ArrayList<String> openMeters;
+    ArrayList<String> openMeters = new ArrayList<>();
 
     public ParkingMeter(Integer parkingMeterNumber, String parkingMeterLocation, String timeAtMeter) {
         if (parkingMeterNumber > 999999 || parkingMeterNumber < 100000 || parkingMeterLocation.length() < 1 || !timeAtMeter.matches("^(\\d|0\\d|1\\d|2[0-3]):[0-5]\\d$")) {
@@ -28,7 +30,7 @@ public class ParkingMeter {
         this.timeAtMeter = timeAtMeter;
         this.meterIsTaken = false;
         this.parkingMeterNumber = parkingMeterNumber;
-        new MeterStorage(this.parkingMeterNumber, this.parkingMeterLocation, this.timeAtMeter, false);
+        meterStorage = new MeterStorage(this.parkingMeterNumber, this.parkingMeterLocation, this.timeAtMeter, false);
     }
 
     public String getTimeAtMeter() {
@@ -41,7 +43,7 @@ public class ParkingMeter {
 
     public void setMeterIsTaken(Integer key, Boolean meterIsTaken) {
         this.meterIsTaken = meterIsTaken;
-        meterStorage.getHm().put(key, new String[]{this.parkingMeterLocation, this.timeAtMeter, String.valueOf(this.meterIsTaken)});
+        meterStorage.getHm().replace(this.parkingMeterNumber, new String[]{this.parkingMeterLocation, this.timeAtMeter, valueOf(this.meterIsTaken)});
     }
 
     public Boolean getMeterIsTaken() {
@@ -52,13 +54,16 @@ public class ParkingMeter {
         return parkingMeterNumber;
     }
 
-    public void setOpenMeter() {
-        if (!this.meterIsTaken) {
-            openMeters.add(String.valueOf(this));
+    public void setOpenMeter(ParkingMeter parkingMeter) {
+        if (this.meterIsTaken == false) {
+            openMeters.add(valueOf(parkingMeter));
         }
     }
 
     public ArrayList<String> getOpenMeters() {
-        return openMeters;
+        if (openMeters.size() > 0) {
+            return openMeters;
+        }
+        return null;
     }
 }

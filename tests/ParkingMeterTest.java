@@ -44,13 +44,13 @@ class ParkingMeterTest {
 
     @Test
     void getMeterIsTaken() {
-        parkingMeter.setMeterIsTaken(true);
+        parkingMeter.setMeterIsTaken(parkingMeterNumber, true);
         assertEquals(true, parkingMeter.getMeterIsTaken());
     }
 
     @Test
     void setMeterIsTaken() {
-        parkingMeter.setMeterIsTaken(false);
+        parkingMeter.setMeterIsTaken(parkingMeterNumber, false);
         assertEquals(false, parkingMeter.getMeterIsTaken());
     }
 }

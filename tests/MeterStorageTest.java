@@ -26,7 +26,7 @@ class MeterStorageTest {
     // meter object
     MeterStorage meterStorage = new MeterStorage(parkingMeterNumber, parkingMeterLocation, parkingMeterTime, false);
 
-    String[] hmTestValues = new String[]{parkingMeterLocation, parkingMeterTime};
+    String[] hmTestValues = new String[]{parkingMeterLocation, parkingMeterTime, String.valueOf(false)};
 
     @Test
     void ParkingMeterConstructor() {

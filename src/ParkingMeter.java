@@ -55,7 +55,7 @@ public class ParkingMeter {
     }
 
     public void setOpenMeter(ParkingMeter parkingMeter) {
-        if (this.meterIsTaken == false) {
+        if (parkingMeter.getMeterIsTaken() == false) {
             openMeters.add(valueOf(parkingMeter));
         }
     }

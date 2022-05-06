@@ -8,6 +8,10 @@ public class parkingAppMain {
         ParkingMeter parkingMeter3 = new ParkingMeter(513351, "4431 Silly rd", "50:00", false);
 
         // Storing dummy parking meters
+        // TODO may need to let meterStorage accept an array of Parking Meters
+        MeterStorage meterStorage1 = new MeterStorage(parkingMeter1);
+        MeterStorage meterStorage2 = new MeterStorage(parkingMeter2);
+        MeterStorage meterStorage3 = new MeterStorage(parkingMeter3);
 
 
 

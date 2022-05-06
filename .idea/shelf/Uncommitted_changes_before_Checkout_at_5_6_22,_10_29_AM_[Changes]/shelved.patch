@@ -1,0 +1,173 @@
+Index: out/production/finalProject/.idea/workspace.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<project version=\"4\">\n  <component name=\"ChangeListManager\">\n    <list default=\"true\" id=\"45870a32-a882-4fa0-ae47-c144a3e9a464\" name=\"Changes\" comment=\"\">\n      <change afterPath=\"$PROJECT_DIR$/tests/UserPageTest.java\" afterDir=\"false\" />\n      <change beforePath=\"$PROJECT_DIR$/.idea/workspace.xml\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/.idea/workspace.xml\" afterDir=\"false\" />\n      <change beforePath=\"$PROJECT_DIR$/src/UserPage.java\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/src/UserPage.java\" afterDir=\"false\" />\n    </list>\n    <option name=\"SHOW_DIALOG\" value=\"false\" />\n    <option name=\"HIGHLIGHT_CONFLICTS\" value=\"true\" />\n    <option name=\"HIGHLIGHT_NON_ACTIVE_CHANGELIST\" value=\"false\" />\n    <option name=\"LAST_RESOLUTION\" value=\"IGNORE\" />\n  </component>\n  <component name=\"FileTemplateManagerImpl\">\n    <option name=\"RECENT_TEMPLATES\">\n      <list>\n        <option value=\"Class\" />\n        <option value=\"JUnit5 Test Class\" />\n      </list>\n    </option>\n  </component>\n  <component name=\"Git.Settings\">\n    <option name=\"RECENT_GIT_ROOT_PATH\" value=\"$PROJECT_DIR$\" />\n  </component>\n  <component name=\"MarkdownSettingsMigration\">\n    <option name=\"stateVersion\" value=\"1\" />\n  </component>\n  <component name=\"ProjectId\" id=\"28kpNXZr8vEHCJcx4AzOTqZhzzj\" />\n  <component name=\"ProjectViewState\">\n    <option name=\"hideEmptyMiddlePackages\" value=\"true\" />\n    <option name=\"showLibraryContents\" value=\"true\" />\n  </component>\n  <component name=\"PropertiesComponent\">\n    <property name=\"Downloaded.Files.Path.Enabled\" value=\"false\" />\n    <property name=\"Repository.Attach.Annotations\" value=\"false\" />\n    <property name=\"Repository.Attach.JavaDocs\" value=\"false\" />\n    <property name=\"Repository.Attach.Sources\" value=\"false\" />\n    <property name=\"RunOnceActivity.OpenProjectViewOnStart\" value=\"true\" />\n    <property name=\"RunOnceActivity.ShowReadmeOnStart\" value=\"true\" />\n    <property name=\"SHARE_PROJECT_CONFIGURATION_FILES\" value=\"true\" />\n    <property name=\"WebServerToolWindowFactoryState\" value=\"false\" />\n    <property name=\"com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary\" value=\"JUnit5\" />\n    <property name=\"com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5\" value=\"\" />\n    <property name=\"create.test.in.the.same.root\" value=\"true\" />\n  </component>\n  <component name=\"RecentsManager\">\n    <key name=\"CreateTestDialog.Recents.Supers\">\n      <recent name=\"\" />\n    </key>\n    <key name=\"CreateTestDialog.RecentsKey\">\n      <recent name=\"src\" />\n    </key>\n  </component>\n  <component name=\"RunManager\">\n    <configuration name=\"UserPageTest\" type=\"JUnit\" factoryName=\"JUnit\">\n      <module name=\"finalProject\" />\n      <option name=\"PACKAGE_NAME\" value=\"tests\" />\n      <option name=\"MAIN_CLASS_NAME\" value=\"tests.UserPageTest\" />\n      <option name=\"METHOD_NAME\" value=\"\" />\n      <option name=\"TEST_OBJECT\" value=\"class\" />\n      <method v=\"2\">\n        <option name=\"Make\" enabled=\"true\" />\n      </method>\n    </configuration>\n  </component>\n  <component name=\"SpellCheckerSettings\" RuntimeDictionaries=\"0\" Folders=\"0\" CustomDictionaries=\"0\" DefaultDictionary=\"application-level\" UseSingleDictionary=\"true\" transferred=\"true\" />\n  <component name=\"TaskManager\">\n    <task active=\"true\" id=\"Default\" summary=\"Default task\">\n      <changelist id=\"45870a32-a882-4fa0-ae47-c144a3e9a464\" name=\"Changes\" comment=\"\" />\n      <created>1651770399990</created>\n      <option name=\"number\" value=\"Default\" />\n      <option name=\"presentableId\" value=\"Default\" />\n      <updated>1651770399990</updated>\n      <workItem from=\"1651770401894\" duration=\"2730000\" />\n      <workItem from=\"1651856122205\" duration=\"933000\" />\n    </task>\n    <servers />\n  </component>\n  <component name=\"TypeScriptGeneratedFilesManager\">\n    <option name=\"version\" value=\"3\" />\n  </component>\n  <component name=\"Vcs.Log.Tabs.Properties\">\n    <option name=\"TAB_STATES\">\n      <map>\n        <entry key=\"MAIN\">\n          <value>\n            <State />\n          </value>\n        </entry>\n      </map>\n    </option>\n  </component>\n</project>
+===================================================================
+diff --git a/out/production/finalProject/.idea/workspace.xml b/out/production/finalProject/.idea/workspace.xml
+--- a/out/production/finalProject/.idea/workspace.xml	
++++ b/out/production/finalProject/.idea/workspace.xml	
+@@ -51,7 +51,7 @@
+       <recent name="src" />
+     </key>
+   </component>
+-  <component name="RunManager">
++  <component name="RunManager" selected="JUnit.UserPageTest.testCreateUserPage">
+     <configuration name="UserPageTest" type="JUnit" factoryName="JUnit">
+       <module name="finalProject" />
+       <option name="PACKAGE_NAME" value="tests" />
+@@ -62,6 +62,31 @@
+         <option name="Make" enabled="true" />
+       </method>
+     </configuration>
++    <configuration name="UserPageTest.testCreateUserPage" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
++      <module name="finalProject" />
++      <extension name="coverage">
++        <pattern>
++          <option name="PATTERN" value="tests.*" />
++          <option name="ENABLED" value="true" />
++        </pattern>
++      </extension>
++      <option name="PACKAGE_NAME" value="tests" />
++      <option name="MAIN_CLASS_NAME" value="tests.UserPageTest" />
++      <option name="METHOD_NAME" value="testCreateUserPage" />
++      <option name="TEST_OBJECT" value="method" />
++      <method v="2">
++        <option name="Make" enabled="true" />
++      </method>
++    </configuration>
++    <list>
++      <item itemvalue="JUnit.UserPageTest" />
++      <item itemvalue="JUnit.UserPageTest.testCreateUserPage" />
++    </list>
++    <recent_temporary>
++      <list>
++        <item itemvalue="JUnit.UserPageTest.testCreateUserPage" />
++      </list>
++    </recent_temporary>
+   </component>
+   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+   <component name="TaskManager">
+@@ -72,7 +97,7 @@
+       <option name="presentableId" value="Default" />
+       <updated>1651770399990</updated>
+       <workItem from="1651770401894" duration="2730000" />
+-      <workItem from="1651856122205" duration="933000" />
++      <workItem from="1651856122205" duration="1297000" />
+     </task>
+     <servers />
+   </component>
+Index: out/production/finalProject/finalProject.iml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<module type=\"JAVA_MODULE\" version=\"4\">\n  <component name=\"CheckStyle-IDEA-Module\">\n    <option name=\"configuration\">\n      <map />\n    </option>\n  </component>\n  <component name=\"NewModuleRootManager\" inherit-compiler-output=\"true\">\n    <exclude-output />\n    <content url=\"file://$MODULE_DIR$\">\n      <sourceFolder url=\"file://$MODULE_DIR$\" isTestSource=\"false\" />\n    </content>\n    <orderEntry type=\"inheritedJdk\" />\n    <orderEntry type=\"sourceFolder\" forTests=\"false\" />\n  </component>\n</module>
+===================================================================
+diff --git a/out/production/finalProject/finalProject.iml b/out/production/finalProject/finalProject.iml
+--- a/out/production/finalProject/finalProject.iml	
++++ b/out/production/finalProject/finalProject.iml	
+@@ -12,5 +12,21 @@
+     </content>
+     <orderEntry type="inheritedJdk" />
+     <orderEntry type="sourceFolder" forTests="false" />
++    <orderEntry type="module-library">
++      <library name="JUnit5.8.1">
++        <CLASSES>
++          <root url="jar://$MAVEN_REPOSITORY$/org/junit/jupiter/junit-jupiter/5.8.1/junit-jupiter-5.8.1.jar!/" />
++          <root url="jar://$MAVEN_REPOSITORY$/org/junit/jupiter/junit-jupiter-api/5.8.1/junit-jupiter-api-5.8.1.jar!/" />
++          <root url="jar://$MAVEN_REPOSITORY$/org/opentest4j/opentest4j/1.2.0/opentest4j-1.2.0.jar!/" />
++          <root url="jar://$MAVEN_REPOSITORY$/org/junit/platform/junit-platform-commons/1.8.1/junit-platform-commons-1.8.1.jar!/" />
++          <root url="jar://$MAVEN_REPOSITORY$/org/apiguardian/apiguardian-api/1.1.2/apiguardian-api-1.1.2.jar!/" />
++          <root url="jar://$MAVEN_REPOSITORY$/org/junit/jupiter/junit-jupiter-params/5.8.1/junit-jupiter-params-5.8.1.jar!/" />
++          <root url="jar://$MAVEN_REPOSITORY$/org/junit/jupiter/junit-jupiter-engine/5.8.1/junit-jupiter-engine-5.8.1.jar!/" />
++          <root url="jar://$MAVEN_REPOSITORY$/org/junit/platform/junit-platform-engine/1.8.1/junit-platform-engine-1.8.1.jar!/" />
++        </CLASSES>
++        <JAVADOC />
++        <SOURCES />
++      </library>
++    </orderEntry>
+   </component>
+ </module>
+\ No newline at end of file
+Index: .idea/workspace.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<project version=\"4\">\n  <component name=\"ChangeListManager\">\n    <list default=\"true\" id=\"45870a32-a882-4fa0-ae47-c144a3e9a464\" name=\"Changes\" comment=\"\">\n      <change afterPath=\"$PROJECT_DIR$/tests/UserPageTest.java\" afterDir=\"false\" />\n      <change beforePath=\"$PROJECT_DIR$/.idea/workspace.xml\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/.idea/workspace.xml\" afterDir=\"false\" />\n      <change beforePath=\"$PROJECT_DIR$/src/UserPage.java\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/src/UserPage.java\" afterDir=\"false\" />\n    </list>\n    <option name=\"SHOW_DIALOG\" value=\"false\" />\n    <option name=\"HIGHLIGHT_CONFLICTS\" value=\"true\" />\n    <option name=\"HIGHLIGHT_NON_ACTIVE_CHANGELIST\" value=\"false\" />\n    <option name=\"LAST_RESOLUTION\" value=\"IGNORE\" />\n  </component>\n  <component name=\"FileTemplateManagerImpl\">\n    <option name=\"RECENT_TEMPLATES\">\n      <list>\n        <option value=\"Class\" />\n        <option value=\"JUnit5 Test Class\" />\n      </list>\n    </option>\n  </component>\n  <component name=\"Git.Settings\">\n    <option name=\"RECENT_GIT_ROOT_PATH\" value=\"$PROJECT_DIR$\" />\n  </component>\n  <component name=\"MarkdownSettingsMigration\">\n    <option name=\"stateVersion\" value=\"1\" />\n  </component>\n  <component name=\"ProjectId\" id=\"28kpNXZr8vEHCJcx4AzOTqZhzzj\" />\n  <component name=\"ProjectViewState\">\n    <option name=\"hideEmptyMiddlePackages\" value=\"true\" />\n    <option name=\"showLibraryContents\" value=\"true\" />\n  </component>\n  <component name=\"PropertiesComponent\">\n    <property name=\"Downloaded.Files.Path.Enabled\" value=\"false\" />\n    <property name=\"Repository.Attach.Annotations\" value=\"false\" />\n    <property name=\"Repository.Attach.JavaDocs\" value=\"false\" />\n    <property name=\"Repository.Attach.Sources\" value=\"false\" />\n    <property name=\"RunOnceActivity.OpenProjectViewOnStart\" value=\"true\" />\n    <property name=\"RunOnceActivity.ShowReadmeOnStart\" value=\"true\" />\n    <property name=\"SHARE_PROJECT_CONFIGURATION_FILES\" value=\"true\" />\n    <property name=\"WebServerToolWindowFactoryState\" value=\"false\" />\n    <property name=\"com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary\" value=\"JUnit5\" />\n    <property name=\"com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5\" value=\"\" />\n    <property name=\"create.test.in.the.same.root\" value=\"true\" />\n  </component>\n  <component name=\"RecentsManager\">\n    <key name=\"CreateTestDialog.Recents.Supers\">\n      <recent name=\"\" />\n    </key>\n    <key name=\"CreateTestDialog.RecentsKey\">\n      <recent name=\"src\" />\n    </key>\n  </component>\n  <component name=\"RunManager\">\n    <configuration name=\"UserPageTest\" type=\"JUnit\" factoryName=\"JUnit\">\n      <module name=\"finalProject\" />\n      <option name=\"PACKAGE_NAME\" value=\"tests\" />\n      <option name=\"MAIN_CLASS_NAME\" value=\"tests.UserPageTest\" />\n      <option name=\"METHOD_NAME\" value=\"\" />\n      <option name=\"TEST_OBJECT\" value=\"class\" />\n      <method v=\"2\">\n        <option name=\"Make\" enabled=\"true\" />\n      </method>\n    </configuration>\n  </component>\n  <component name=\"SpellCheckerSettings\" RuntimeDictionaries=\"0\" Folders=\"0\" CustomDictionaries=\"0\" DefaultDictionary=\"application-level\" UseSingleDictionary=\"true\" transferred=\"true\" />\n  <component name=\"TaskManager\">\n    <task active=\"true\" id=\"Default\" summary=\"Default task\">\n      <changelist id=\"45870a32-a882-4fa0-ae47-c144a3e9a464\" name=\"Changes\" comment=\"\" />\n      <created>1651770399990</created>\n      <option name=\"number\" value=\"Default\" />\n      <option name=\"presentableId\" value=\"Default\" />\n      <updated>1651770399990</updated>\n      <workItem from=\"1651770401894\" duration=\"2730000\" />\n      <workItem from=\"1651856122205\" duration=\"1297000\" />\n    </task>\n    <servers />\n  </component>\n  <component name=\"TypeScriptGeneratedFilesManager\">\n    <option name=\"version\" value=\"3\" />\n  </component>\n  <component name=\"Vcs.Log.Tabs.Properties\">\n    <option name=\"TAB_STATES\">\n      <map>\n        <entry key=\"MAIN\">\n          <value>\n            <State />\n          </value>\n        </entry>\n      </map>\n    </option>\n  </component>\n</project>
+===================================================================
+diff --git a/.idea/workspace.xml b/.idea/workspace.xml
+--- a/.idea/workspace.xml	
++++ b/.idea/workspace.xml	
+@@ -2,9 +2,15 @@
+ <project version="4">
+   <component name="ChangeListManager">
+     <list default="true" id="45870a32-a882-4fa0-ae47-c144a3e9a464" name="Changes" comment="">
+-      <change afterPath="$PROJECT_DIR$/tests/UserPageTest.java" afterDir="false" />
++      <change afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/src/UserPage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/UserPage.java" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/out/production/finalProject/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/finalProject/.idea/workspace.xml" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/out/production/finalProject/finalProject.iml" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/finalProject/finalProject.iml" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/src/MeterStorage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/MeterStorage.java" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/src/ParkingMeter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ParkingMeter.java" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/src/ParkingMeterTab.java" beforeDir="false" />
++      <change beforePath="$PROJECT_DIR$/tests/MeterStorageTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/tests/MeterStorageTest.java" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/tests/ParkingMeterTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/tests/ParkingMeterTest.java" afterDir="false" />
+     </list>
+     <option name="SHOW_DIALOG" value="false" />
+     <option name="HIGHLIGHT_CONFLICTS" value="true" />
+@@ -42,6 +48,7 @@
+     <property name="com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary" value="JUnit5" />
+     <property name="com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5" value="" />
+     <property name="create.test.in.the.same.root" value="true" />
++    <property name="nodejs_package_manager_path" value="npm" />
+   </component>
+   <component name="RecentsManager">
+     <key name="CreateTestDialog.Recents.Supers">
+@@ -51,7 +58,7 @@
+       <recent name="src" />
+     </key>
+   </component>
+-  <component name="RunManager">
++  <component name="RunManager" selected="JUnit.UserPageTest.testCreateUserPage">
+     <configuration name="UserPageTest" type="JUnit" factoryName="JUnit">
+       <module name="finalProject" />
+       <option name="PACKAGE_NAME" value="tests" />
+@@ -62,6 +69,31 @@
+         <option name="Make" enabled="true" />
+       </method>
+     </configuration>
++    <configuration name="UserPageTest.testCreateUserPage" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
++      <module name="finalProject" />
++      <extension name="coverage">
++        <pattern>
++          <option name="PATTERN" value="tests.*" />
++          <option name="ENABLED" value="true" />
++        </pattern>
++      </extension>
++      <option name="PACKAGE_NAME" value="tests" />
++      <option name="MAIN_CLASS_NAME" value="tests.UserPageTest" />
++      <option name="METHOD_NAME" value="testCreateUserPage" />
++      <option name="TEST_OBJECT" value="method" />
++      <method v="2">
++        <option name="Make" enabled="true" />
++      </method>
++    </configuration>
++    <list>
++      <item itemvalue="JUnit.UserPageTest" />
++      <item itemvalue="JUnit.UserPageTest.testCreateUserPage" />
++    </list>
++    <recent_temporary>
++      <list>
++        <item itemvalue="JUnit.UserPageTest.testCreateUserPage" />
++      </list>
++    </recent_temporary>
+   </component>
+   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+   <component name="TaskManager">
+@@ -72,7 +104,7 @@
+       <option name="presentableId" value="Default" />
+       <updated>1651770399990</updated>
+       <workItem from="1651770401894" duration="2730000" />
+-      <workItem from="1651856122205" duration="1297000" />
++      <workItem from="1651856122205" duration="2015000" />
+     </task>
+     <servers />
+   </component>

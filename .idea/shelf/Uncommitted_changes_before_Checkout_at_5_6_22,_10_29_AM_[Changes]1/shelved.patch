@@ -1,0 +1,241 @@
+Index: src/MeterStorage.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package src;\n\nimport java.util.HashMap;\n\npublic class MeterStorage {\n    // Hashmap for parking meter\n    private final HashMap<Integer, String[]> hm = new HashMap<>();\n\n    Integer parkingMeterNumber;\n\n    String parkingMeterLocation;\n\n    String parkingMeterTime;\n\n    public MeterStorage(Integer parkingMeterNumber, String parkingMeterLocation, String parkingMeterTime) {\n        if (parkingMeterNumber > 999999 || parkingMeterNumber < 100000 || parkingMeterLocation.length() < 1 || !parkingMeterTime.matches(\"^(\\\\d|0\\\\d|1\\\\d|2[0-3]):[0-5]\\\\d$\")) {\n            throw new IllegalArgumentException(\"Invalid Input\");\n        }\n        this.parkingMeterNumber = parkingMeterNumber;\n        this.parkingMeterLocation = parkingMeterLocation;\n        this.parkingMeterTime = parkingMeterTime;\n        hm.put(this.parkingMeterNumber, new String[]{this.parkingMeterLocation, this.parkingMeterTime});\n    }\n\n    public HashMap<Integer, String[]> getHm() {\n        return hm;\n    }\n\n    public String getParkingMeterLocation(Integer key) {\n        if (key > 999999 || key < 100000) {\n            throw new IllegalArgumentException(\"Invalid input\");\n        }\n        return hm.get(key)[0];\n    }\n\n    public String getParkingMeterTime(Integer key) {\n        if (key > 999999 || key < 100000) {\n            throw new IllegalArgumentException(\"Invalid input\");\n        }\n        return hm.get(key)[1];\n    }\n}\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/MeterStorage.java b/src/MeterStorage.java
+--- a/src/MeterStorage.java	
++++ b/src/MeterStorage.java	
+@@ -6,20 +6,24 @@
+     // Hashmap for parking meter
+     private final HashMap<Integer, String[]> hm = new HashMap<>();
+ 
++    // parking meter ID number
+     Integer parkingMeterNumber;
+ 
+     String parkingMeterLocation;
+ 
+     String parkingMeterTime;
+ 
+-    public MeterStorage(Integer parkingMeterNumber, String parkingMeterLocation, String parkingMeterTime) {
++    Boolean meterIsTaken;
++
++    public MeterStorage(Integer parkingMeterNumber, String parkingMeterLocation, String parkingMeterTime, Boolean meterIsTaken) {
+         if (parkingMeterNumber > 999999 || parkingMeterNumber < 100000 || parkingMeterLocation.length() < 1 || !parkingMeterTime.matches("^(\\d|0\\d|1\\d|2[0-3]):[0-5]\\d$")) {
+             throw new IllegalArgumentException("Invalid Input");
+         }
+         this.parkingMeterNumber = parkingMeterNumber;
+         this.parkingMeterLocation = parkingMeterLocation;
+         this.parkingMeterTime = parkingMeterTime;
+-        hm.put(this.parkingMeterNumber, new String[]{this.parkingMeterLocation, this.parkingMeterTime});
++        this.meterIsTaken = meterIsTaken;
++        hm.put(this.parkingMeterNumber, new String[]{this.parkingMeterLocation, this.parkingMeterTime, String.valueOf(this.meterIsTaken)});
+     }
+ 
+     public HashMap<Integer, String[]> getHm() {
+Index: tests/MeterStorageTest.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package tests;\n\nimport org.junit.jupiter.api.Test;\nimport src.MeterStorage;\n\nimport java.util.Arrays;\n\nimport static org.junit.Assert.assertThrows;\nimport static org.junit.jupiter.api.Assertions.assertEquals;\n\nclass MeterStorageTest {\n    // Key for parking meter storage map\n    Integer parkingMeterNumber = 123456;\n\n    // location of parking meter\n    String parkingMeterLocation = \"8809 W Castle Street\";\n\n    // time remaining on meter\n    String parkingMeterTime = \"10:40\";\n\n    // meter object\n    MeterStorage meterStorage = new MeterStorage(parkingMeterNumber, parkingMeterLocation, parkingMeterTime);\n\n    String[] hmTestValues = new String[]{parkingMeterLocation, parkingMeterTime};\n\n    @Test\n    void ParkingMeterConstructor() {\n        assertEquals(parkingMeterLocation, meterStorage.getParkingMeterLocation(parkingMeterNumber));\n        assertEquals(parkingMeterTime, meterStorage.getParkingMeterTime(parkingMeterNumber));\n    }\n\n    @Test\n    void constructorException() {\n        Exception exception = assertThrows(IllegalArgumentException.class, () -> {\n            Integer invalidParkingMeterNumber = 123;\n            String invalidParkingMeterLocation = \"\";\n            String invalidParkingMeterTime = \"99:99\";\n            new MeterStorage(invalidParkingMeterNumber, invalidParkingMeterLocation, invalidParkingMeterTime);\n        });\n        String expectedMessage = \"Invalid Input\";\n        String actualMessage = exception.getMessage();\n        assertEquals(expectedMessage, actualMessage);\n    }\n\n    @Test\n    void getHmTest() {\n        assertEquals(Arrays.toString(hmTestValues), Arrays.toString(meterStorage.getHm().get(parkingMeterNumber)));\n    }\n\n    @Test\n    void getParkingMeterLocation() {\n        assertEquals(parkingMeterLocation, meterStorage.getParkingMeterLocation(parkingMeterNumber));\n    }\n\n    @Test\n    void getParkingMeterLocationException() {\n        Exception exception = assertThrows(IllegalArgumentException.class, () -> {\n            Integer invalidParkingMeterNumber = 123;\n            meterStorage.getParkingMeterLocation(invalidParkingMeterNumber);\n        });\n        String expectedMessage = \"Invalid input\";\n        String actualMessage = exception.getMessage();\n        assertEquals(expectedMessage, actualMessage);\n    }\n\n    @Test\n    void getParkingMeterTime() {\n        assertEquals(parkingMeterTime, meterStorage.getParkingMeterTime(parkingMeterNumber));\n    }\n\n    @Test\n    void getParkingMeterTimeException() {\n        Exception exception = assertThrows(IllegalArgumentException.class, () -> {\n            Integer invalidParkingMeterNumber = 123;\n            meterStorage.getParkingMeterTime(invalidParkingMeterNumber);\n        });\n        String expectedMessage = \"Invalid input\";\n        String actualMessage = exception.getMessage();\n        assertEquals(expectedMessage, actualMessage);\n    }\n}
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/tests/MeterStorageTest.java b/tests/MeterStorageTest.java
+--- a/tests/MeterStorageTest.java	
++++ b/tests/MeterStorageTest.java	
+@@ -1,3 +1,8 @@
++/*
++    This is the source of data force the parking meter classes. This can be considered as part of a database
++    where information can be stored and altered if needed
++ */
++
+ package tests;
+ 
+ import org.junit.jupiter.api.Test;
+@@ -19,9 +24,9 @@
+     String parkingMeterTime = "10:40";
+ 
+     // meter object
+-    MeterStorage meterStorage = new MeterStorage(parkingMeterNumber, parkingMeterLocation, parkingMeterTime);
++    MeterStorage meterStorage = new MeterStorage(parkingMeterNumber, parkingMeterLocation, parkingMeterTime, false);
+ 
+-    String[] hmTestValues = new String[]{parkingMeterLocation, parkingMeterTime};
++    String[] hmTestValues = new String[]{parkingMeterLocation, parkingMeterTime, String.valueOf(false)};
+ 
+     @Test
+     void ParkingMeterConstructor() {
+@@ -35,7 +40,7 @@
+             Integer invalidParkingMeterNumber = 123;
+             String invalidParkingMeterLocation = "";
+             String invalidParkingMeterTime = "99:99";
+-            new MeterStorage(invalidParkingMeterNumber, invalidParkingMeterLocation, invalidParkingMeterTime);
++            new MeterStorage(invalidParkingMeterNumber, invalidParkingMeterLocation, invalidParkingMeterTime, false);
+         });
+         String expectedMessage = "Invalid Input";
+         String actualMessage = exception.getMessage();
+Index: src/ParkingMeter.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package src;\n\npublic class ParkingMeter {\n\n    // The location of the parking meter\n    private final String parkingMeterLocation;\n\n    // The duration you can park at a meter\n    private final String timeAtMeter;\n    private final Integer parkingMeterNumber;\n\n    // Constructor for the parking meter\n    private Boolean meterIsTaken;\n\n    public ParkingMeter(Integer parkingMeterNumber, String parkingMeterLocation, String timeAtMeter) {\n        if (parkingMeterNumber > 999999 || parkingMeterNumber < 100000 || parkingMeterLocation.length() < 1 || !timeAtMeter.matches(\"^(\\\\d|0\\\\d|1\\\\d|2[0-3]):[0-5]\\\\d$\")) {\n            throw new IllegalArgumentException(\"Invalid Input\");\n        }\n        this.parkingMeterLocation = parkingMeterLocation;\n        this.timeAtMeter = timeAtMeter;\n        this.meterIsTaken = false;\n        this.parkingMeterNumber = parkingMeterNumber;\n        new MeterStorage(this.parkingMeterNumber, this.parkingMeterLocation, this.timeAtMeter);\n    }\n\n    public String getTimeAtMeter() {\n        return this.timeAtMeter;\n    }\n\n    public String getParkingMeterLocation() {\n        return this.parkingMeterLocation;\n    }\n\n    public void setMeterIsTaken(Boolean meterIsTaken) {\n        this.meterIsTaken = meterIsTaken;\n    }\n\n    public Boolean getMeterIsTaken() {\n        return this.meterIsTaken;\n    }\n\n    public Integer getParkingMeterNumber() {\n        return parkingMeterNumber;\n    }\n}\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/ParkingMeter.java b/src/ParkingMeter.java
+--- a/src/ParkingMeter.java	
++++ b/src/ParkingMeter.java	
+@@ -1,5 +1,9 @@
+ package src;
+ 
++import java.util.ArrayList;
++
++import static java.lang.String.valueOf;
++
+ public class ParkingMeter {
+ 
+     // The location of the parking meter
+@@ -12,6 +16,12 @@
+     // Constructor for the parking meter
+     private Boolean meterIsTaken;
+ 
++    // Hashmap of taken parking meters
++    MeterStorage meterStorage;
++
++    // List of open parking meters
++    ArrayList<String> openMeters = new ArrayList<>();
++
+     public ParkingMeter(Integer parkingMeterNumber, String parkingMeterLocation, String timeAtMeter) {
+         if (parkingMeterNumber > 999999 || parkingMeterNumber < 100000 || parkingMeterLocation.length() < 1 || !timeAtMeter.matches("^(\\d|0\\d|1\\d|2[0-3]):[0-5]\\d$")) {
+             throw new IllegalArgumentException("Invalid Input");
+@@ -20,7 +30,7 @@
+         this.timeAtMeter = timeAtMeter;
+         this.meterIsTaken = false;
+         this.parkingMeterNumber = parkingMeterNumber;
+-        new MeterStorage(this.parkingMeterNumber, this.parkingMeterLocation, this.timeAtMeter);
++        meterStorage = new MeterStorage(this.parkingMeterNumber, this.parkingMeterLocation, this.timeAtMeter, false);
+     }
+ 
+     public String getTimeAtMeter() {
+@@ -31,8 +41,9 @@
+         return this.parkingMeterLocation;
+     }
+ 
+-    public void setMeterIsTaken(Boolean meterIsTaken) {
++    public void setMeterIsTaken(Integer key, Boolean meterIsTaken) {
+         this.meterIsTaken = meterIsTaken;
++        meterStorage.getHm().replace(this.parkingMeterNumber, new String[]{this.parkingMeterLocation, this.timeAtMeter, valueOf(this.meterIsTaken)});
+     }
+ 
+     public Boolean getMeterIsTaken() {
+@@ -42,4 +53,17 @@
+     public Integer getParkingMeterNumber() {
+         return parkingMeterNumber;
+     }
++
++    public void setOpenMeter(ParkingMeter parkingMeter) {
++        if (parkingMeter.getMeterIsTaken() == false) {
++            openMeters.add(valueOf(parkingMeter));
++        }
++    }
++
++    public ArrayList<String> getOpenMeters() {
++        if (openMeters.size() > 0) {
++            return openMeters;
++        }
++        return null;
++    }
+ }
+Index: src/ParkingMeterTab.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/ParkingMeterTab.java b/src/ParkingMeterTab.java
+deleted file mode 100644
+--- a/src/ParkingMeterTab.java	
++++ /dev/null	
+@@ -1,16 +0,0 @@
+-package src;
+-
+-import java.util.ArrayList;
+-
+-public class ParkingMeterTab {
+-    // ArrayList of open parking meters
+-    private ArrayList<ParkingMeter> openParking;
+-
+-    public ArrayList<ParkingMeter> getOpenParking() {
+-        return openParking;
+-    }
+-
+-    public void setOpenParking(ArrayList<ParkingMeter> openParking) {
+-        this.openParking = openParking;
+-    }
+-}
+Index: tests/ParkingMeterTest.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package tests;\n\nimport org.junit.jupiter.api.Test;\nimport src.ParkingMeter;\n\nimport static org.junit.Assert.assertThrows;\nimport static org.junit.jupiter.api.Assertions.assertEquals;\n\nclass ParkingMeterTest {\n\n    Integer parkingMeterNumber = 123456;\n    String parkingMeterLocation = \"8809 W Castle Street\";\n    String parkingMeterTime = \"10:40\";\n    ParkingMeter parkingMeter = new ParkingMeter(parkingMeterNumber, parkingMeterLocation, parkingMeterTime);\n\n    @Test\n    void ParkingMeterConstructor() {\n        assertEquals(parkingMeterLocation, parkingMeter.getParkingMeterLocation());\n        assertEquals(parkingMeterTime, parkingMeter.getTimeAtMeter());\n    }\n\n    @Test\n    void constructorException() {\n        Exception exception = assertThrows(IllegalArgumentException.class, () -> {\n            Integer invalidParkingMeterNumber = 123;\n            String invalidParkingMeterLocation = \"\";\n            String invalidParkingMeterTime = \"99:99\";\n            new ParkingMeter(invalidParkingMeterNumber, invalidParkingMeterLocation, invalidParkingMeterTime);\n        });\n        String expectedMessage = \"Invalid Input\";\n        String actualMessage = exception.getMessage();\n        assertEquals(expectedMessage, actualMessage);\n    }\n\n    @Test\n    void getParkingMeterTime() {\n        assertEquals(parkingMeterTime, parkingMeter.getTimeAtMeter());\n    }\n\n    @Test\n    void getParkingMeterLocation() {\n        assertEquals(parkingMeterLocation, parkingMeter.getParkingMeterLocation());\n    }\n\n    @Test\n    void getMeterIsTaken() {\n        parkingMeter.setMeterIsTaken(true);\n        assertEquals(true, parkingMeter.getMeterIsTaken());\n    }\n\n    @Test\n    void setMeterIsTaken() {\n        parkingMeter.setMeterIsTaken(false);\n        assertEquals(false, parkingMeter.getMeterIsTaken());\n    }\n}
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/tests/ParkingMeterTest.java b/tests/ParkingMeterTest.java
+--- a/tests/ParkingMeterTest.java	
++++ b/tests/ParkingMeterTest.java	
+@@ -3,6 +3,8 @@
+ import org.junit.jupiter.api.Test;
+ import src.ParkingMeter;
+ 
++import java.util.ArrayList;
++
+ import static org.junit.Assert.assertThrows;
+ import static org.junit.jupiter.api.Assertions.assertEquals;
+ 
+@@ -13,6 +15,8 @@
+     String parkingMeterTime = "10:40";
+     ParkingMeter parkingMeter = new ParkingMeter(parkingMeterNumber, parkingMeterLocation, parkingMeterTime);
+ 
++    ArrayList<String> openMeters = new ArrayList<>();
++
+     @Test
+     void ParkingMeterConstructor() {
+         assertEquals(parkingMeterLocation, parkingMeter.getParkingMeterLocation());
+@@ -44,13 +48,22 @@
+ 
+     @Test
+     void getMeterIsTaken() {
+-        parkingMeter.setMeterIsTaken(true);
++        parkingMeter.setMeterIsTaken(parkingMeterNumber, true);
+         assertEquals(true, parkingMeter.getMeterIsTaken());
+     }
+ 
+     @Test
+     void setMeterIsTaken() {
+-        parkingMeter.setMeterIsTaken(false);
++        parkingMeter.setMeterIsTaken(parkingMeterNumber, false);
+         assertEquals(false, parkingMeter.getMeterIsTaken());
+     }
++
++    @Test
++    void getOpenMeter() {
++        parkingMeter.setMeterIsTaken(parkingMeterNumber, false);
++        parkingMeter.setOpenMeter(parkingMeter);
++        openMeters.add(parkingMeter.getOpenMeters().toString());
++        assertEquals(openMeters.get(0), parkingMeter.getOpenMeters().toString() );
++    }
++
+ }
+\ No newline at end of file
+Index: README.md
+===================================================================
+diff --git a/README.md b/README.md
+new file mode 100644
+--- /dev/null	
++++ b/README.md	
+@@ -0,0 +1,6 @@
++# finalProject
++This is the repo for the final group project
++
++# Main Theme
++This project involves creating a GUI based application that is centered around a parking meter tracking system.
++

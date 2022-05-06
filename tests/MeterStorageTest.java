@@ -1,12 +1,18 @@
+/*
+    This is the source of data force the parking meter classes. This can be considered as part of a database
+    where information can be stored and altered if needed
+ */
+
 package tests;
 
 import org.junit.jupiter.api.Test;
 import src.MeterStorage;
+import src.ParkingMeter;
 
 import java.util.Arrays;
 
-import static org.junit.Assert.assertThrows;
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertThrows;
 
 class MeterStorageTest {
     // Key for parking meter storage map
@@ -18,10 +24,13 @@ class MeterStorageTest {
     // time remaining on meter
     String parkingMeterTime = "10:40";
 
-    // meter object
-    MeterStorage meterStorage = new MeterStorage(parkingMeterNumber, parkingMeterLocation, parkingMeterTime);
+    // parking meter object
+    ParkingMeter parkingMeter = new ParkingMeter(parkingMeterNumber, parkingMeterLocation, parkingMeterTime, false);
 
-    String[] hmTestValues = new String[]{parkingMeterLocation, parkingMeterTime};
+    // meter storage object creation
+    MeterStorage meterStorage = new MeterStorage(parkingMeter);
+
+    String[] hmTestValues = new String[]{parkingMeterLocation, parkingMeterTime, String.valueOf(false)};
 
     @Test
     void ParkingMeterConstructor() {
@@ -35,7 +44,8 @@ class MeterStorageTest {
             Integer invalidParkingMeterNumber = 123;
             String invalidParkingMeterLocation = "";
             String invalidParkingMeterTime = "99:99";
-            new MeterStorage(invalidParkingMeterNumber, invalidParkingMeterLocation, invalidParkingMeterTime);
+            ParkingMeter parkingMeter1 = new ParkingMeter(invalidParkingMeterNumber, invalidParkingMeterLocation, invalidParkingMeterTime, false);
+            new MeterStorage(parkingMeter1);
         });
         String expectedMessage = "Invalid Input";
         String actualMessage = exception.getMessage();

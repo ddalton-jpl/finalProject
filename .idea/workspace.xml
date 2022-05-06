@@ -1,10 +1,22 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="45870a32-a882-4fa0-ae47-c144a3e9a464" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/tests/UserPageTest.java" afterDir="false" />
+    <list default="true" id="5a2a1712-003c-4650-b531-ba94a34644c7" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/UserPage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/UserPage.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/finalProject.iml" beforeDir="false" afterPath="$PROJECT_DIR$/finalProject.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/finalProject/.idea/checkstyle-idea.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/finalProject/.idea/misc.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/finalProject/.idea/modules.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/finalProject/.idea/uiDesigner.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/finalProject/.idea/vcs.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/finalProject/.idea/workspace.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/finalProject/LICENSE" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/finalProject/finalProject.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/MeterStorage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/MeterStorage.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ParkingMeter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ParkingMeter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ParkingMeterTab.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/parkingAppMain.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/MeterStorageTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/tests/MeterStorageTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/ParkingMeterTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/tests/ParkingMeterTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -51,7 +63,7 @@
       <recent name="src" />
     </key>
   </component>
-  <component name="RunManager">
+  <component name="RunManager" selected="JUnit.UserPageTest.testCreateUserPage">
     <configuration name="UserPageTest" type="JUnit" factoryName="JUnit">
       <module name="finalProject" />
       <option name="PACKAGE_NAME" value="tests" />
@@ -62,6 +74,47 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="UserPageTest.testCreateUserPage" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="finalProject" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="tests.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="tests" />
+      <option name="MAIN_CLASS_NAME" value="tests.UserPageTest" />
+      <option name="METHOD_NAME" value="testCreateUserPage" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="tests in finalProject" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="finalProject" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="tests.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="tests" />
+      <option name="TEST_OBJECT" value="package" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <list>
+      <item itemvalue="JUnit.UserPageTest" />
+      <item itemvalue="JUnit.tests in finalProject" />
+      <item itemvalue="JUnit.UserPageTest.testCreateUserPage" />
+    </list>
+    <recent_temporary>
+      <list>
+        <item itemvalue="JUnit.UserPageTest.testCreateUserPage" />
+        <item itemvalue="JUnit.tests in finalProject" />
+      </list>
+    </recent_temporary>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">

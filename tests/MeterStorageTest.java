@@ -1,3 +1,8 @@
+/*
+    This is the source of data force the parking meter classes. This can be considered as part of a database
+    where information can be stored and altered if needed
+ */
+
 package tests;
 
 import org.junit.jupiter.api.Test;
@@ -19,9 +24,9 @@ class MeterStorageTest {
     String parkingMeterTime = "10:40";
 
     // meter object
-    MeterStorage meterStorage = new MeterStorage(parkingMeterNumber, parkingMeterLocation, parkingMeterTime);
+    MeterStorage meterStorage = new MeterStorage(parkingMeterNumber, parkingMeterLocation, parkingMeterTime, false);
 
-    String[] hmTestValues = new String[]{parkingMeterLocation, parkingMeterTime};
+    String[] hmTestValues = new String[]{parkingMeterLocation, parkingMeterTime, String.valueOf(false)};
 
     @Test
     void ParkingMeterConstructor() {
@@ -35,7 +40,7 @@ class MeterStorageTest {
             Integer invalidParkingMeterNumber = 123;
             String invalidParkingMeterLocation = "";
             String invalidParkingMeterTime = "99:99";
-            new MeterStorage(invalidParkingMeterNumber, invalidParkingMeterLocation, invalidParkingMeterTime);
+            new MeterStorage(invalidParkingMeterNumber, invalidParkingMeterLocation, invalidParkingMeterTime, false);
         });
         String expectedMessage = "Invalid Input";
         String actualMessage = exception.getMessage();

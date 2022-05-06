@@ -19,5 +19,9 @@ public class UserPage {
         timeRemaining = meter.getTimeAtMeter();
     }
 
+    private void setLocation(ParkingMeter meter) {
+        location = meter.getParkingMeterLocation();
+    }
+
 
 }

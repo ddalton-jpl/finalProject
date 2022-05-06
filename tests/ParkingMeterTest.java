@@ -13,7 +13,7 @@ class ParkingMeterTest {
     Integer parkingMeterNumber = 123456;
     String parkingMeterLocation = "8809 W Castle Street";
     String parkingMeterTime = "10:40";
-    ParkingMeter parkingMeter = new ParkingMeter(parkingMeterNumber, parkingMeterLocation, parkingMeterTime);
+    ParkingMeter parkingMeter = new ParkingMeter(parkingMeterNumber, parkingMeterLocation, parkingMeterTime, false);
 
     ArrayList<String> openMeters = new ArrayList<>();
 
@@ -29,7 +29,7 @@ class ParkingMeterTest {
             Integer invalidParkingMeterNumber = 123;
             String invalidParkingMeterLocation = "";
             String invalidParkingMeterTime = "99:99";
-            new ParkingMeter(invalidParkingMeterNumber, invalidParkingMeterLocation, invalidParkingMeterTime);
+            new ParkingMeter(invalidParkingMeterNumber, invalidParkingMeterLocation, invalidParkingMeterTime, false);
         });
         String expectedMessage = "Invalid Input";
         String actualMessage = exception.getMessage();

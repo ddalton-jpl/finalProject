@@ -7,10 +7,10 @@ import static java.lang.String.valueOf;
 public class ParkingMeter {
 
     // The location of the parking meter
-    private final String parkingMeterLocation;
+    private String parkingMeterLocation;
 
     // The duration you can park at a meter
-    private final String timeAtMeter;
+    private String timeAtMeter;
     private final Integer parkingMeterNumber;
 
     // Constructor for the parking meter
@@ -22,23 +22,31 @@ public class ParkingMeter {
     // List of open parking meters
     ArrayList<String> openMeters = new ArrayList<>();
 
-    public ParkingMeter(Integer parkingMeterNumber, String parkingMeterLocation, String timeAtMeter) {
+    public ParkingMeter(Integer parkingMeterNumber, String parkingMeterLocation, String timeAtMeter, Boolean meterIsTaken) {
         if (parkingMeterNumber > 999999 || parkingMeterNumber < 100000 || parkingMeterLocation.length() < 1 || !timeAtMeter.matches("^(\\d|0\\d|1\\d|2[0-3]):[0-5]\\d$")) {
             throw new IllegalArgumentException("Invalid Input");
         }
         this.parkingMeterLocation = parkingMeterLocation;
         this.timeAtMeter = timeAtMeter;
-        this.meterIsTaken = false;
+        this.meterIsTaken = meterIsTaken;
         this.parkingMeterNumber = parkingMeterNumber;
-        meterStorage = new MeterStorage(this.parkingMeterNumber, this.parkingMeterLocation, this.timeAtMeter, false);
+        meterStorage = new MeterStorage(this);
     }
 
     public String getTimeAtMeter() {
         return this.timeAtMeter;
     }
 
+    public void setTimeAtMeter(String timeChosen) {
+        this.timeAtMeter = timeChosen;
+    }
+
     public String getParkingMeterLocation() {
         return this.parkingMeterLocation;
+    }
+
+    public void setParkingMeterLocation(String location) {
+        this.parkingMeterLocation = location;
     }
 
     public void setMeterIsTaken(Integer key, Boolean meterIsTaken) {

@@ -7,6 +7,7 @@ package tests;
 
 import org.junit.jupiter.api.Test;
 import src.MeterStorage;
+import src.ParkingMeter;
 
 import java.util.Arrays;
 
@@ -23,8 +24,11 @@ class MeterStorageTest {
     // time remaining on meter
     String parkingMeterTime = "10:40";
 
-    // meter object
-    MeterStorage meterStorage = new MeterStorage(parkingMeterNumber, parkingMeterLocation, parkingMeterTime, false);
+    // parking meter object
+    ParkingMeter parkingMeter = new ParkingMeter(parkingMeterNumber, parkingMeterLocation, parkingMeterTime, false);
+
+    // meter storage object creation
+    MeterStorage meterStorage = new MeterStorage(parkingMeter);
 
     String[] hmTestValues = new String[]{parkingMeterLocation, parkingMeterTime, String.valueOf(false)};
 
@@ -40,7 +44,8 @@ class MeterStorageTest {
             Integer invalidParkingMeterNumber = 123;
             String invalidParkingMeterLocation = "";
             String invalidParkingMeterTime = "99:99";
-            new MeterStorage(invalidParkingMeterNumber, invalidParkingMeterLocation, invalidParkingMeterTime, false);
+            ParkingMeter parkingMeter1 = new ParkingMeter(invalidParkingMeterNumber, invalidParkingMeterLocation, invalidParkingMeterTime, false);
+            new MeterStorage(parkingMeter1);
         });
         String expectedMessage = "Invalid Input";
         String actualMessage = exception.getMessage();

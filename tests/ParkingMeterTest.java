@@ -48,19 +48,19 @@ class ParkingMeterTest {
 
     @Test
     void getMeterIsTaken() {
-        parkingMeter.setMeterIsTaken(parkingMeterNumber, true);
+        parkingMeter.setMeterIsTaken(true);
         assertEquals(true, parkingMeter.getMeterIsTaken());
     }
 
     @Test
     void setMeterIsTaken() {
-        parkingMeter.setMeterIsTaken(parkingMeterNumber, false);
+        parkingMeter.setMeterIsTaken(false);
         assertEquals(false, parkingMeter.getMeterIsTaken());
     }
 
     @Test
     void getOpenMeter() {
-        parkingMeter.setMeterIsTaken(parkingMeterNumber, false);
+        parkingMeter.setMeterIsTaken(false);
         parkingMeter.setOpenMeter(parkingMeter);
         openMeters.add(parkingMeter.getOpenMeters().toString());
         assertEquals(openMeters.get(0), parkingMeter.getOpenMeters().toString() );

@@ -49,7 +49,7 @@ public class ParkingMeter {
         this.parkingMeterLocation = location;
     }
 
-    public void setMeterIsTaken(Integer key, Boolean meterIsTaken) {
+    public void setMeterIsTaken(Boolean meterIsTaken) {
         this.meterIsTaken = meterIsTaken;
         meterStorage.getHm().replace(this.parkingMeterNumber, new String[]{this.parkingMeterLocation, this.timeAtMeter, valueOf(this.meterIsTaken)});
     }
@@ -63,7 +63,7 @@ public class ParkingMeter {
     }
 
     public void setOpenMeter(ParkingMeter parkingMeter) {
-        if (parkingMeter.getMeterIsTaken() == false) {
+        if (!parkingMeter.getMeterIsTaken()) {
             openMeters.add(valueOf(parkingMeter));
         }
     }

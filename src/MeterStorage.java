@@ -7,10 +7,10 @@ public class MeterStorage {
     private final HashMap<Integer, String[]> hm = new HashMap<>();
 
     public MeterStorage(ParkingMeter parkingMeter) {
-        if (parkingMeter.getParkingMeterNumber() > 999999 || parkingMeter.getParkingMeterNumber() < 100000 || parkingMeter.getParkingMeterLocation().length() < 1 || !parkingMeter.getTimeAtMeter().matches("^(\\d|0\\d|1\\d|2[0-3]):[0-5]\\d$")) {
+        if (parkingMeter.getParkingMeterNumber() > 999999 || parkingMeter.getParkingMeterNumber() < 100000 || parkingMeter.getParkingMeterLocation().length() < 1) {
             throw new IllegalArgumentException("Invalid Input");
         }
-        hm.put(parkingMeter.getParkingMeterNumber(), new String[]{parkingMeter.getParkingMeterLocation(), parkingMeter.getTimeAtMeter(), String.valueOf(parkingMeter.getMeterIsTaken())});
+        hm.put(parkingMeter.getParkingMeterNumber(), new String[]{parkingMeter.getParkingMeterLocation(), String.valueOf(parkingMeter.getMeterIsTaken())});
     }
 
     public HashMap<Integer, String[]> getHm() {

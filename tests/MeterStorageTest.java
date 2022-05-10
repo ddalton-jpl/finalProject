@@ -21,21 +21,17 @@ class MeterStorageTest {
     // location of parking meter
     String parkingMeterLocation = "8809 W Castle Street";
 
-    // time remaining on meter
-    String parkingMeterTime = "10:40";
-
     // parking meter object
-    ParkingMeter parkingMeter = new ParkingMeter(parkingMeterNumber, parkingMeterLocation, parkingMeterTime, false);
+    ParkingMeter parkingMeter = new ParkingMeter(parkingMeterNumber, parkingMeterLocation, false);
 
     // meter storage object creation
     MeterStorage meterStorage = new MeterStorage(parkingMeter);
 
-    String[] hmTestValues = new String[]{parkingMeterLocation, parkingMeterTime, String.valueOf(false)};
+    String[] hmTestValues = new String[]{parkingMeterLocation, String.valueOf(false)};
 
     @Test
     void ParkingMeterConstructor() {
         assertEquals(parkingMeterLocation, meterStorage.getParkingMeterLocation(parkingMeterNumber));
-        assertEquals(parkingMeterTime, meterStorage.getParkingMeterTime(parkingMeterNumber));
     }
 
     @Test
@@ -43,8 +39,7 @@ class MeterStorageTest {
         Exception exception = assertThrows(IllegalArgumentException.class, () -> {
             Integer invalidParkingMeterNumber = 123;
             String invalidParkingMeterLocation = "";
-            String invalidParkingMeterTime = "99:99";
-            ParkingMeter parkingMeter1 = new ParkingMeter(invalidParkingMeterNumber, invalidParkingMeterLocation, invalidParkingMeterTime, false);
+            ParkingMeter parkingMeter1 = new ParkingMeter(invalidParkingMeterNumber, invalidParkingMeterLocation, false);
             new MeterStorage(parkingMeter1);
         });
         String expectedMessage = "Invalid Input";
@@ -71,11 +66,6 @@ class MeterStorageTest {
         String expectedMessage = "Invalid input";
         String actualMessage = exception.getMessage();
         assertEquals(expectedMessage, actualMessage);
-    }
-
-    @Test
-    void getParkingMeterTime() {
-        assertEquals(parkingMeterTime, meterStorage.getParkingMeterTime(parkingMeterNumber));
     }
 
     @Test

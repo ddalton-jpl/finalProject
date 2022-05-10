@@ -1,26 +1,22 @@
 package src;
 
 public class UserPage {
+    private User user;
 
-    private boolean hasParkingSession;
-    private String timeRemaining;
-    private String location;
-
-    public UserPage(boolean hasParkingSession) {
-        if (hasParkingSession == true) {
-            this.timeRemaining = "0";
-            this.location = "N/A";
-        }
+    public UserPage(User user) {
+        this.user = user;
     }
 
-
-
-    private void setTimeRemaining(ParkingMeter meter) {
-        timeRemaining = meter.getTimeAtMeter();
+    private String getTimer(ParkingMeter meter) {
+        if (meter == null)
+            System.out.println("Display blank");
+        return user.getMeter().timeAtMeter;
     }
 
-    private void setLocation(ParkingMeter meter) {
-        location = meter.getParkingMeterLocation();
+    private String getLocation(ParkingMeter meter) {
+        if (meter == null)
+            System.out.println("No parking session");
+        return user.getMeter().parkingMeterLocation;
     }
 
 

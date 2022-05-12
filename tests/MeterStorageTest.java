@@ -11,8 +11,10 @@ import src.ParkingMeter;
 
 import java.util.Arrays;
 
-import static org.junit.Assert.assertThrows;
+//import static org.junit.Assert.assertThrows;
+
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertThrows;
 
 class MeterStorageTest {
     // Key for parking meter storage map
@@ -25,17 +27,17 @@ class MeterStorageTest {
     String parkingMeterTime = "10:40";
 
     // parking meter object
-    ParkingMeter parkingMeter = new ParkingMeter(parkingMeterNumber, parkingMeterLocation, parkingMeterTime, false);
+    ParkingMeter parkingMeter = new ParkingMeter(parkingMeterNumber, parkingMeterLocation, false);
 
     // meter storage object creation
     MeterStorage meterStorage = new MeterStorage(parkingMeter);
 
-    String[] hmTestValues = new String[]{parkingMeterLocation, parkingMeterTime, String.valueOf(false)};
+    String[] hmTestValues = new String[]{parkingMeterLocation, String.valueOf(false)};
 
     @Test
     void ParkingMeterConstructor() {
         assertEquals(parkingMeterLocation, meterStorage.getParkingMeterLocation(parkingMeterNumber));
-        assertEquals(parkingMeterTime, meterStorage.getParkingMeterTime(parkingMeterNumber));
+        //assertEquals(parkingMeterTime, meterStorage.getParkingMeterTime(parkingMeterNumber));
     }
 
     @Test
@@ -44,7 +46,7 @@ class MeterStorageTest {
             Integer invalidParkingMeterNumber = 123;
             String invalidParkingMeterLocation = "";
             String invalidParkingMeterTime = "99:99";
-            ParkingMeter parkingMeter1 = new ParkingMeter(invalidParkingMeterNumber, invalidParkingMeterLocation, invalidParkingMeterTime, false);
+            ParkingMeter parkingMeter1 = new ParkingMeter(invalidParkingMeterNumber, invalidParkingMeterLocation, false);
             new MeterStorage(parkingMeter1);
         });
         String expectedMessage = "Invalid Input";
@@ -73,19 +75,5 @@ class MeterStorageTest {
         assertEquals(expectedMessage, actualMessage);
     }
 
-    @Test
-    void getParkingMeterTime() {
-        assertEquals(parkingMeterTime, meterStorage.getParkingMeterTime(parkingMeterNumber));
-    }
 
-    @Test
-    void getParkingMeterTimeException() {
-        Exception exception = assertThrows(IllegalArgumentException.class, () -> {
-            Integer invalidParkingMeterNumber = 123;
-            meterStorage.getParkingMeterTime(invalidParkingMeterNumber);
-        });
-        String expectedMessage = "Invalid input";
-        String actualMessage = exception.getMessage();
-        assertEquals(expectedMessage, actualMessage);
-    }
 }

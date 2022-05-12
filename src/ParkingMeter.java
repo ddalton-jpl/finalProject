@@ -21,25 +21,18 @@ public class ParkingMeter {
 
     // List of open parking meters
     ArrayList<String> openMeters = new ArrayList<>();
+    public static ArrayList<ParkingMeter> availableMeters;
 
-    public ParkingMeter(Integer parkingMeterNumber, String parkingMeterLocation, String timeAtMeter, Boolean meterIsTaken) {
-        if (parkingMeterNumber > 999999 || parkingMeterNumber < 100000 || parkingMeterLocation.length() < 1 || !timeAtMeter.matches("^(\\d|0\\d|1\\d|2[0-3]):[0-5]\\d$")) {
+    public ParkingMeter(Integer parkingMeterNumber, String parkingMeterLocation, Boolean meterIsTaken) {
+        if (parkingMeterNumber > 999999 || parkingMeterNumber < 100000 || parkingMeterLocation.length() < 1 ) {
             throw new IllegalArgumentException("Invalid Input");
         }
         this.parkingMeterLocation = parkingMeterLocation;
-        this.timeAtMeter = timeAtMeter;
         this.meterIsTaken = meterIsTaken;
         this.parkingMeterNumber = parkingMeterNumber;
         meterStorage = new MeterStorage(this);
     }
 
-    public String getTimeAtMeter() {
-        return this.timeAtMeter;
-    }
-
-    public void setTimeAtMeter(String timeChosen) {
-        this.timeAtMeter = timeChosen;
-    }
 
     public String getParkingMeterLocation() {
         return this.parkingMeterLocation;
@@ -68,10 +61,20 @@ public class ParkingMeter {
         }
     }
 
+
     public ArrayList<String> getOpenMeters() {
         if (openMeters.size() > 0) {
             return openMeters;
         }
         return null;
     }
+
+    public void addMeter(){
+        if(availableMeters == null){
+            availableMeters = new ArrayList<>();
+        }
+        availableMeters.add(this);
+    }
+
+
 }

@@ -28,6 +28,11 @@ public class JTabbed_Logic extends JFrame implements ActionListener {
     private JLabel minutesLabelOnFormTab;
     private JTable parkingTable;
 
+
+    private String[] columns = {"Location:", "Meter-Number:"};
+    public static String[][] data = new String[10][2];
+
+
     //variables and tools for the timer
     private Timer parkingTimer;
     private Integer second, minute, hour;
@@ -44,31 +49,16 @@ public class JTabbed_Logic extends JFrame implements ActionListener {
         this.setSize(new Dimension(500,500));    // sets the size of the window to 500 by 500 pixels.
         this.setLocationRelativeTo(null);                    //  Sets the starting location to the center of the screen.
         this.add(tabbedPane1);// adds the JTabbedPane Object to the JFrame.
-        this.setTitle("Park Away!");// sets the title of the application.
+        this.setTitle("Smartpark!");// sets the title of the application.
         ImageIcon image = new ImageIcon("parkingSign.png");
         this.setIconImage(image.getImage());
 
+        createTable();
 
-
-        String[] columns = {"Location:", "Meter-Number:"};
-        String[][] data = {{"Meter 1", "123456"}, {"Meter 2", "654321"}, {"Meter 3", "696969"}};
-        parkingTable = new JTable(data, columns); // 1D array sets the title of each column, the 2D array sets the data in the table.
-        parkingTable.setPreferredScrollableViewportSize(new Dimension(400,400)); // sets the preferred size of the table.
-        parkingTable.setEnabled(false);  // makes it so that the data in the data table cannot be edited by the user. (As in changing Address names or time remaining)
-
-        JScrollPane scroller = new JScrollPane(parkingTable); // makes the table scrollable if the number of locations is greater than what can fit on the page.
-        Parking.add(scroller); // adds the scrolling table to the "Parking" Panel.
-
-        parkingFormSubmitButton.addActionListener(this); // creates the action listener that allows the button to function when clicked.
-        parkingFormClearButton.addActionListener(this);
-
+        this.parkingFormSubmitButton.addActionListener(this); // creates the action listener that allows the button to function when clicked.
+        this.parkingFormClearButton.addActionListener(this);
 
         this.setVisible(true);// makes the JFrame visible.
-    }
-
-
-    public static void main(String[] args) {
-        new JTabbed_Logic();
     }
 
 
@@ -86,7 +76,7 @@ public class JTabbed_Logic extends JFrame implements ActionListener {
                     tempNumber = p.getParkingMeterNumber();
                     String str = p.getParkingMeterLocation();
                     userCurrentLocation.setText(str);
-                    second = 5;
+                    second = 0;
                     minute = minuteSlider.getValue();
                     hour = hourSlider.getValue();
                     timer();
@@ -114,6 +104,7 @@ public class JTabbed_Logic extends JFrame implements ActionListener {
                     new ParkingMeter(tempNumber,tempLocation,tempIsTaken).addMeter();
                     userCurrentLocation.setText("*No meter reserved*");
                     JOptionPane.showMessageDialog(null, "The time on your meter has expired!", "Time Is Up", JOptionPane.WARNING_MESSAGE);
+
                 }
                 second--;
                 ddSecond = DFormat.format(second);
@@ -141,4 +132,18 @@ public class JTabbed_Logic extends JFrame implements ActionListener {
         });
     }
 
+    public void createTable(){
+        int i = 0;
+        String[][] newData = new String[availableMeters.size()][2];
+        for(ParkingMeter p : availableMeters){
+            newData[i][0] = p.getParkingMeterLocation();
+            newData[i][1] = String.valueOf(p.getParkingMeterNumber());
+            i++;
+        }
+        this.parkingTable = new JTable(newData, columns); // 1D array(columns) sets the title of each column, the 2D array(data) sets the data in the table.
+        this.parkingTable.setPreferredScrollableViewportSize(new Dimension(400,400)); // sets the preferred size of the table.
+        this.parkingTable.setEnabled(false);  // makes it so that the data in the data table cannot be edited by the user. (As in changing Address names or time remaining)
+        JScrollPane scroller = new JScrollPane(parkingTable); // makes the table scrollable if the number of locations is greater than what can fit on the page.
+        this.Parking.add(scroller); // adds the scrolling table to the "Parking" Panel.
+    }
 }

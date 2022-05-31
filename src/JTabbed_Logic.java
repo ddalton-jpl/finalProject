@@ -49,15 +49,12 @@ public class JTabbed_Logic extends JFrame implements ActionListener {
         this.setSize(new Dimension(500,500));    // sets the size of the window to 500 by 500 pixels.
         this.setLocationRelativeTo(null);                    //  Sets the starting location to the center of the screen.
         this.add(tabbedPane1);// adds the JTabbedPane Object to the JFrame.
-        this.setTitle("Smartpark!");// sets the title of the application.
+        this.setTitle("Smart-park!");// sets the title of the application.
         ImageIcon image = new ImageIcon("parkingSign.png");
         this.setIconImage(image.getImage());
-
         createTable();
-
         this.parkingFormSubmitButton.addActionListener(this); // creates the action listener that allows the button to function when clicked.
         this.parkingFormClearButton.addActionListener(this);
-
         this.setVisible(true);// makes the JFrame visible.
     }
 

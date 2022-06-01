@@ -32,7 +32,7 @@ public class parkingAppMain {
         MeterStorage meterStorage2 = new MeterStorage(parkingMeter2);
         MeterStorage meterStorage3 = new MeterStorage(parkingMeter3);
 
-        new JTabbed_Logic();
+        new parkingGUI();
 
 
 

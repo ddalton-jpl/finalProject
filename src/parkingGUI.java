@@ -9,7 +9,7 @@ import java.util.Objects;
 
 import static src.ParkingMeter.availableMeters;
 
-public class JTabbed_Logic extends JFrame implements ActionListener {
+public class parkingGUI extends JFrame implements ActionListener {
     private JTabbedPane tabbedPane1;
     private JPanel panel1;
     private JPanel User;
@@ -44,7 +44,7 @@ public class JTabbed_Logic extends JFrame implements ActionListener {
     private String tempLocation;
     private Boolean tempIsTaken;
 
-    public JTabbed_Logic() {
+    public parkingGUI() {
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE); // sets the close operation to when the "red X" is clicked.
         this.setSize(new Dimension(500,500));    // sets the size of the window to 500 by 500 pixels.
         this.setLocationRelativeTo(null);                    //  Sets the starting location to the center of the screen.

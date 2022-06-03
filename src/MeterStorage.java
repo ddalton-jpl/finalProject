@@ -9,7 +9,7 @@ public class MeterStorage {
     private final HashMap<Integer, String[]> hm = new HashMap<>();
 
     /**
-     * This will create a new meter storage to store a Parking Meter object.
+     * This will create a new meter storage to store a Parking Meter object. The parking meter will be added to the hashmap with its associated key and location.
      *
      * @param parkingMeter
      * @throws IllegalArgumentException If parking meter number exceeds 999999, or if parking meter number is less than 100000, or if the location of the parking meter is incorrect.
@@ -22,13 +22,19 @@ public class MeterStorage {
     }
 
     /**
-     * This will return the current HashMap for
+     * This will return the current HashMap for the class.
      * @return hm
      */
     public HashMap<Integer, String[]> getHm() {
         return hm;
     }
 
+    /**
+     * This will take in a key associated with one parking meter and return its current location.
+     *
+     * @param key
+     * @return Parking Meter location
+     */
     public String getParkingMeterLocation(Integer key) {
         if (key > 999999 || key < 100000) {
             throw new IllegalArgumentException("Invalid input");

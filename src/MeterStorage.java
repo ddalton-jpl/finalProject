@@ -3,9 +3,15 @@ package src;
 import java.util.HashMap;
 
 public class MeterStorage {
-    // Hashmap for parking meter
+    /**
+     * The HashMap that stores Parking Meters.
+     */
     private final HashMap<Integer, String[]> hm = new HashMap<>();
 
+    /**
+     *
+     * @param parkingMeter
+     */
     public MeterStorage(ParkingMeter parkingMeter) {
         if (parkingMeter.getParkingMeterNumber() > 999999 || parkingMeter.getParkingMeterNumber() < 100000 || parkingMeter.getParkingMeterLocation().length() < 1) {
             throw new IllegalArgumentException("Invalid Input");

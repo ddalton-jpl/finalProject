@@ -5,11 +5,13 @@ import java.util.HashMap;
 public class MeterStorage {
     /**
      * The HashMap that stores Parking Meters.
+     * Meters will be stored by key. They will also contain a record of the meter's location and whether it is currently reserved.
      */
     private final HashMap<Integer, String[]> hm = new HashMap<>();
 
     /**
-     * This will create a new meter storage to store a Parking Meter object. The parking meter will be added to the hashmap with its associated key and location.
+     * This will create a new meter storage to store a Parking Meter object.
+     * The parking meter will be added to the hashmap with its associated key and location.
      *
      * @param parkingMeter
      * @throws IllegalArgumentException If parking meter number exceeds 999999, or if parking meter number is less than 100000, or if the location of the parking meter is incorrect.

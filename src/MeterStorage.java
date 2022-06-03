@@ -29,8 +29,8 @@ public class MeterStorage {
     }
 
     /**
-     * This will return the current HashMap for the class.
-     * 
+     * This will return the current HashMap for the MeterStorage class.
+     *
      * @return The HashMap stored in MeterStorage
      */
     public HashMap<Integer, String[]> getHm() {

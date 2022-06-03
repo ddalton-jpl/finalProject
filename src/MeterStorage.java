@@ -23,7 +23,7 @@ public class MeterStorage {
 
     /**
      * This will return the current HashMap for the class.
-     * @return hm
+     * @return The HashMap stored in MeterStorage
      */
     public HashMap<Integer, String[]> getHm() {
         return hm;
@@ -42,6 +42,12 @@ public class MeterStorage {
         return hm.get(key)[0];
     }
 
+    /**
+     * This will take in a key associated with one parking meter and return the time remaining on the meter.
+     *
+     * @param key
+     * @return Time left on meter
+     */
     public String getParkingMeterTime(Integer key) {
         if (key > 999999 || key < 100000) {
             throw new IllegalArgumentException("Invalid input");

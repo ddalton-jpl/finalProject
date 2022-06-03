@@ -2,6 +2,11 @@ package src;
 
 import java.util.HashMap;
 
+/**
+ * The storage for parking meters. This class will allow meters to be stored
+ * in a HashMap and have their information called upon when necessary.
+ */
+
 public class MeterStorage {
     /**
      * The HashMap that stores Parking Meters.
@@ -25,6 +30,7 @@ public class MeterStorage {
 
     /**
      * This will return the current HashMap for the class.
+     * 
      * @return The HashMap stored in MeterStorage
      */
     public HashMap<Integer, String[]> getHm() {

@@ -18,7 +18,7 @@ public class MeterStorage {
      * This will create a new meter storage to store a Parking Meter object.
      * The parking meter will be added to the hashmap with its associated key and location.
      *
-     * @param parkingMeter
+     * @param parkingMeter A parking meter to be added to the MeterStorage
      * @throws IllegalArgumentException If parking meter number exceeds 999999, or if parking meter number is less than 100000, or if the location of the parking meter is incorrect.
      */
     public MeterStorage(ParkingMeter parkingMeter) {
@@ -40,8 +40,9 @@ public class MeterStorage {
     /**
      * This will take in a key associated with one parking meter and return its current location.
      *
-     * @param key
+     * @param key A key associated with the desired ParkingMeter
      * @return Parking Meter location
+     * @see ParkingMeter
      */
     public String getParkingMeterLocation(Integer key) {
         if (key > 999999 || key < 100000) {
@@ -53,8 +54,9 @@ public class MeterStorage {
     /**
      * This will take in a key associated with one parking meter and return the time remaining on the meter.
      *
-     * @param key
+     * @param key A key associated with the desired ParkingMeter
      * @return Time left on meter
+     * @see ParkingMeter
      */
     public String getParkingMeterTime(Integer key) {
         if (key > 999999 || key < 100000) {

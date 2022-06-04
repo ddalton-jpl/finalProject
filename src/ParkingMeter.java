@@ -9,6 +9,8 @@ public class ParkingMeter {
     // The location of the parking meter
     private String parkingMeterLocation;
 
+    // The duration you can park at a meter
+    private String timeAtMeter;
     private final Integer parkingMeterNumber;
 
     // Constructor for the parking meter
@@ -19,9 +21,10 @@ public class ParkingMeter {
 
     // List of open parking meters
     ArrayList<String> openMeters = new ArrayList<>();
+    public static ArrayList<ParkingMeter> availableMeters;
 
     public ParkingMeter(Integer parkingMeterNumber, String parkingMeterLocation, Boolean meterIsTaken) {
-        if (parkingMeterNumber > 999999 || parkingMeterNumber < 100000 || parkingMeterLocation.length() < 1) {
+        if (parkingMeterNumber > 999999 || parkingMeterNumber < 100000 || parkingMeterLocation.length() < 1 ) {
             throw new IllegalArgumentException("Invalid Input");
         }
         this.parkingMeterLocation = parkingMeterLocation;
@@ -30,13 +33,18 @@ public class ParkingMeter {
         meterStorage = new MeterStorage(this);
     }
 
+
     public String getParkingMeterLocation() {
         return this.parkingMeterLocation;
     }
 
-    public void setMeterIsTaken(Boolean meterIsTaken) {
+    public void setParkingMeterLocation(String location) {
+        this.parkingMeterLocation = location;
+    }
+
+    public void setMeterIsTaken(Integer key, Boolean meterIsTaken) {
         this.meterIsTaken = meterIsTaken;
-        meterStorage.getHm().replace(this.parkingMeterNumber, new String[]{this.parkingMeterLocation, valueOf(this.meterIsTaken)});
+        meterStorage.getHm().replace(this.parkingMeterNumber, new String[]{this.parkingMeterLocation, this.timeAtMeter, valueOf(this.meterIsTaken)});
     }
 
     public Boolean getMeterIsTaken() {
@@ -48,10 +56,11 @@ public class ParkingMeter {
     }
 
     public void setOpenMeter(ParkingMeter parkingMeter) {
-        if (!parkingMeter.getMeterIsTaken()) {
+        if (parkingMeter.getMeterIsTaken() == false) {
             openMeters.add(valueOf(parkingMeter));
         }
     }
+
 
     public ArrayList<String> getOpenMeters() {
         if (openMeters.size() > 0) {
@@ -59,4 +68,13 @@ public class ParkingMeter {
         }
         return null;
     }
+
+    public void addMeter(){
+        if(availableMeters == null){
+            availableMeters = new ArrayList<>();
+        }
+        availableMeters.add(this);
+    }
+
+
 }

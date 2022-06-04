@@ -11,8 +11,10 @@ import src.ParkingMeter;
 
 import java.util.Arrays;
 
-import static org.junit.Assert.assertThrows;
+//import static org.junit.Assert.assertThrows;
+
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertThrows;
 
 class MeterStorageTest {
     // Key for parking meter storage map
@@ -20,6 +22,9 @@ class MeterStorageTest {
 
     // location of parking meter
     String parkingMeterLocation = "8809 W Castle Street";
+
+    // time remaining on meter
+    String parkingMeterTime = "10:40";
 
     // parking meter object
     ParkingMeter parkingMeter = new ParkingMeter(parkingMeterNumber, parkingMeterLocation, false);
@@ -32,6 +37,7 @@ class MeterStorageTest {
     @Test
     void ParkingMeterConstructor() {
         assertEquals(parkingMeterLocation, meterStorage.getParkingMeterLocation(parkingMeterNumber));
+        //assertEquals(parkingMeterTime, meterStorage.getParkingMeterTime(parkingMeterNumber));
     }
 
     @Test
@@ -39,6 +45,7 @@ class MeterStorageTest {
         Exception exception = assertThrows(IllegalArgumentException.class, () -> {
             Integer invalidParkingMeterNumber = 123;
             String invalidParkingMeterLocation = "";
+            String invalidParkingMeterTime = "99:99";
             ParkingMeter parkingMeter1 = new ParkingMeter(invalidParkingMeterNumber, invalidParkingMeterLocation, false);
             new MeterStorage(parkingMeter1);
         });
@@ -68,14 +75,5 @@ class MeterStorageTest {
         assertEquals(expectedMessage, actualMessage);
     }
 
-    @Test
-    void getParkingMeterTimeException() {
-        Exception exception = assertThrows(IllegalArgumentException.class, () -> {
-            Integer invalidParkingMeterNumber = 123;
-            meterStorage.getParkingMeterTime(invalidParkingMeterNumber);
-        });
-        String expectedMessage = "Invalid input";
-        String actualMessage = exception.getMessage();
-        assertEquals(expectedMessage, actualMessage);
-    }
+
 }

@@ -5,8 +5,9 @@ import src.ParkingMeter;
 
 import java.util.ArrayList;
 
-import static org.junit.Assert.assertThrows;
+//import static org.junit.Assert.assertThrows;
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertThrows;
 
 class ParkingMeterTest {
 
@@ -19,6 +20,7 @@ class ParkingMeterTest {
     @Test
     void ParkingMeterConstructor() {
         assertEquals(parkingMeterLocation, parkingMeter.getParkingMeterLocation());
+        //assertEquals(parkingMeterTime, parkingMeter.getTimeAtMeter());
     }
 
     @Test
@@ -26,13 +28,13 @@ class ParkingMeterTest {
         Exception exception = assertThrows(IllegalArgumentException.class, () -> {
             Integer invalidParkingMeterNumber = 123;
             String invalidParkingMeterLocation = "";
-            String invalidParkingMeterTime = "99:99";
-            new ParkingMeter(invalidParkingMeterNumber, invalidParkingMeterLocation,false);
+            new ParkingMeter(invalidParkingMeterNumber, invalidParkingMeterLocation, false);
         });
         String expectedMessage = "Invalid Input";
         String actualMessage = exception.getMessage();
         assertEquals(expectedMessage, actualMessage);
     }
+
 
     @Test
     void getParkingMeterLocation() {
@@ -41,19 +43,19 @@ class ParkingMeterTest {
 
     @Test
     void getMeterIsTaken() {
-        parkingMeter.setMeterIsTaken(true);
+        parkingMeter.setMeterIsTaken(parkingMeterNumber, true);
         assertEquals(true, parkingMeter.getMeterIsTaken());
     }
 
     @Test
     void setMeterIsTaken() {
-        parkingMeter.setMeterIsTaken(false);
+        parkingMeter.setMeterIsTaken(parkingMeterNumber, false);
         assertEquals(false, parkingMeter.getMeterIsTaken());
     }
 
     @Test
     void getOpenMeter() {
-        parkingMeter.setMeterIsTaken(false);
+        parkingMeter.setMeterIsTaken(parkingMeterNumber, false);
         parkingMeter.setOpenMeter(parkingMeter);
         openMeters.add(parkingMeter.getOpenMeters().toString());
         assertEquals(openMeters.get(0), parkingMeter.getOpenMeters().toString() );

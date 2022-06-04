@@ -7,7 +7,7 @@ public class MeterStorage {
     private final HashMap<Integer, String[]> hm = new HashMap<>();
 
     public MeterStorage(ParkingMeter parkingMeter) {
-        if (parkingMeter.getParkingMeterNumber() > 999999 || parkingMeter.getParkingMeterNumber() < 100000 || parkingMeter.getParkingMeterLocation().length() < 1) {
+        if (parkingMeter.getParkingMeterNumber() > 999999 || parkingMeter.getParkingMeterNumber() < 100000 || parkingMeter.getParkingMeterLocation().length() < 1 ) {
             throw new IllegalArgumentException("Invalid Input");
         }
         hm.put(parkingMeter.getParkingMeterNumber(), new String[]{parkingMeter.getParkingMeterLocation(), String.valueOf(parkingMeter.getMeterIsTaken())});

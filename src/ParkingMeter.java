@@ -28,10 +28,10 @@ public class ParkingMeter {
      *
      * @param parkingMeterNumber
      * @param parkingMeterLocation
-     * @param timeAtMeter
+     * @param isMeterTaken
      */
-    public ParkingMeter(Integer parkingMeterNumber, String parkingMeterLocation, String timeAtMeter) {
-        if (parkingMeterNumber > 999999 || parkingMeterNumber < 100000 || parkingMeterLocation.length() < 1 || !timeAtMeter.matches("^(\\d|0\\d|1\\d|2[0-3]):[0-5]\\d$")) {
+    public ParkingMeter(Integer parkingMeterNumber, String parkingMeterLocation, boolean isMeterTaken) {
+        if (parkingMeterNumber > 999999 || parkingMeterNumber < 100000 || parkingMeterLocation.length() < 1) {
             throw new IllegalArgumentException("Invalid Input");
         }
         this.parkingMeterLocation = parkingMeterLocation;

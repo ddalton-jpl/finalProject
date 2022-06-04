@@ -6,7 +6,6 @@ import java.util.HashMap;
  * The storage for parking meters. This class will allow meters to be stored
  * in a HashMap and have their information called upon when necessary.
  */
-
 public class MeterStorage {
     /**
      * The HashMap that stores Parking Meters.
@@ -22,7 +21,7 @@ public class MeterStorage {
      * @throws IllegalArgumentException If parking meter number exceeds 999999, or if parking meter number is less than 100000, or if the location of the parking meter is incorrect.
      */
     public MeterStorage(ParkingMeter parkingMeter) {
-        if (parkingMeter.getParkingMeterNumber() > 999999 || parkingMeter.getParkingMeterNumber() < 100000 || parkingMeter.getParkingMeterLocation().length() < 1) {
+        if (parkingMeter.getParkingMeterNumber() > 999999 || parkingMeter.getParkingMeterNumber() < 100000 || parkingMeter.getParkingMeterLocation().length() < 1 ) {
             throw new IllegalArgumentException("Invalid Input");
         }
         hm.put(parkingMeter.getParkingMeterNumber(), new String[]{parkingMeter.getParkingMeterLocation(), String.valueOf(parkingMeter.getMeterIsTaken())});

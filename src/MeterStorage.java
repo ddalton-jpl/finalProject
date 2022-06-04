@@ -2,6 +2,7 @@ package src;
 
 import java.util.HashMap;
 
+
 public class MeterStorage {
     // Hashmap for parking meter
     private final HashMap<Integer, String[]> hm = new HashMap<>();

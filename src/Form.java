@@ -2,15 +2,13 @@ package src;
 import src.ParkingMeter;
 public class Form {
 
-    private int time;
+    private boolean isTaken;
     private int num;
-    String location;
+    private String location;
 
     /**
      *
-     * @param num set as num
-     * @param time set as time
-     * @param location set as location
+     * @param meter is the meter passed to the form object
      * The form tab will interact with the GUI,
      * taking the user input and storing it inside a user object
      *
@@ -19,10 +17,10 @@ public class Form {
      * Please enter meter time
      * Please enter meter location
      */
-    public Form(int num, int time, String location) {
-        this.num = num;
-        this.time = time;
-        this.location = location;
+    public Form(ParkingMeter meter) {
+        this.num = meter.getParkingMeterNumber();
+        this.isTaken = meter.getMeterIsTaken();
+        this.location = meter.getParkingMeterLocation();
     }
 
     /**
@@ -33,13 +31,6 @@ public class Form {
         return this.num;
     }
 
-    /**
-     *
-     * @return the time
-     */
-    public int getTime() {
-        return this.time;
-    }
 
     /**
      *
@@ -54,45 +45,35 @@ public class Form {
      * @param n number
      * @return number
      */
-    public int setNum(int n) {
+    public void setNum(int n) {
         this.num = n;
-        return n;
     }
 
-    /**
-     * set the time
-     * @param t is time
-     * @return t the time
-     */
-    public int setTime(int t) {
-        this.time = t;
-        return t;
-    }
 
     /**
      * Set the location
      * @param loc being location
      * @return loc
      */
-    public String setLocation(String loc) {
+    public void setLocation(String loc) {
         this.location = loc;
-        return loc;
     }
 
     /**
      * Check is the meter is taken
-     * @param num being meter number
      * @return true if meter is taken
      * else, return false
      */
-    public boolean isTaken(Integer num) {
+    public boolean isTaken() {
+        return this.isTaken;
+    }
 
-        if (num >= 999999 || num <= 100000 ) {
-            throw new IllegalArgumentException();
-        }
-        if(!meterStorage.getHm.get(num).getMeterIsTaken())
-            return false;
-
-        return true;
+    /**
+     * set the isTaken status
+     * @param isTaken is the new
+     * status of the meter
+     */
+    public void setIsTaken(boolean isTaken){
+        this.isTaken = isTaken;
     }
 }

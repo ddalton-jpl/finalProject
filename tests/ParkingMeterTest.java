@@ -60,5 +60,11 @@ class ParkingMeterTest {
         openMeters.add(parkingMeter.getOpenMeters().toString());
         assertEquals(openMeters.get(0), parkingMeter.getOpenMeters().toString() );
     }
+    @Test
+    void getParkingMeterNumber(){
+        assertEquals(parkingMeterNumber, parkingMeter.getParkingMeterNumber());
+    }
+
+
 
 }

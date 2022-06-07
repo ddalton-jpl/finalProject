@@ -75,5 +75,4 @@ class MeterStorageTest {
         assertEquals(expectedMessage, actualMessage);
     }
 
-
 }

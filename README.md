@@ -7,5 +7,5 @@ This project involves creating a GUI based application that is centered around a
 This is a pure Java project which involved JFrame as the main aspect of the GUI. Some of the dependencies involved are JUnit and the full JFrame libary. This is a simple application meant as a demonstration of team-based learning and design patterns.
 
 # Webpage
-Check out our webpage here [a relative link](index.html)
+Check out our webpage <a href="index.html" title="here">here</a>!
 

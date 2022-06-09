@@ -1,3 +1,6 @@
+// This javascript covers the movement of the scroll bar as well
+// as animation throughout the page (AOS - Animate on Scroll).
+
 $(document).ready(function () {
 		$('.menu-toggler').on('click', function () {
 				$(this).toggleClass('open');
